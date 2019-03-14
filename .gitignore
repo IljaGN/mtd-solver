@@ -1,0 +1,14 @@
+# Cache/Options directory
+.vs/
+
+# Local History
+.localhistory/
+
+# Build results
+bin/
+obj/
+
+# Auto generated files
+*.Designer.cs
+*.sln
+*.csproj
