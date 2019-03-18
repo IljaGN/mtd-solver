@@ -5,48 +5,102 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MTD_Solver"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="MainWindow" Height="350" Width="550" ResizeMode="CanMinimize">
+    <Window.Resources>
+        <Style TargetType="Window">
+            <Setter Property="FontSize" Value="15"/>
+        </Style>
+    </Window.Resources>
+
+    <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
+            <RowDefinition Height="10"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition Width="10"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <WrapPanel Grid.Column="0" Grid.Row="0">
-            <StackPanel Orientation="Horizontal">
-                <Label>T1</Label>
-                <TextBox MinWidth="80"></TextBox>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Label Margin="20 0 0 0">T2</Label>
-                <TextBox MinWidth="80"></TextBox>
-            </StackPanel>
-        </WrapPanel>
-        <WrapPanel Grid.Column="1" Grid.Row="0">
-            <Label>t1</Label>
-            <TextBox MinWidth="80"></TextBox>
-            <Label Margin="20 0 0 0">t2</Label>
-            <TextBox MinWidth="80"></TextBox>
-        </WrapPanel>
-        <WrapPanel Grid.Column="0" Grid.Row="1">
-            <Label>P</Label>
-            <TextBox MinWidth="80"></TextBox>
-            <Label Margin="20 0 0 0">R</Label>
-            <TextBox MinWidth="80"></TextBox>
-        </WrapPanel>
-        <WrapPanel Grid.Column="1" Grid.Row="1">
-            <Label>mtd</Label>
-            <TextBox MinWidth="80"></TextBox>
-            <Label Margin="20 0 0 0">F</Label>
-            <TextBox MinWidth="80"></TextBox>
-        </WrapPanel>
-        <WrapPanel Grid.Column="2" Grid.Row="1">
-            <Label>mtd*F</Label>
-            <TextBox MinWidth="80"></TextBox>
-        </WrapPanel>
+        <GroupBox Padding="5" Header="Input" Grid.Column="0" Grid.Row="0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition Height="10"></RowDefinition>
+                    <RowDefinition Height="30"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0" Grid.Row="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <ContentControl Content="T1" Template="{StaticResource MtdInput}" Grid.Column="0" Grid.Row="0"/>
+                    <ContentControl Content="T2" Template="{StaticResource MtdInput}" Grid.Column="0" Grid.Row="1"/>
+                </Grid>
+                <Grid Grid.Column="1" Grid.Row="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <ContentControl Content="t1" Template="{StaticResource MtdInput}" Grid.Column="0" Grid.Row="0"/>
+                    <ContentControl Content="t2" Template="{StaticResource MtdInput}" Grid.Column="0" Grid.Row="1"/>
+                </Grid>
+                <Grid HorizontalAlignment="Center" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2">
+                    <Button Padding="10 0 10 0">Calculate</Button>
+                </Grid>
+            </Grid>
+        </GroupBox>
+        <DockPanel LastChildFill="True" Grid.Column="2" Grid.Row="0" Grid.RowSpan="3">
+            <ComboBox
+                Margin="0 0 0 10"
+                Padding="5"
+                Text="Select Heat Exchanger"
+                IsEditable="True"
+                IsReadOnly="True"
+                DockPanel.Dock="Top">
+                <!-- TODO: fake data -->
+                <TextBlock>Counterflow</TextBlock>
+                <TextBlock>Shell and Tube</TextBlock>
+                <TextBlock>Crossflow</TextBlock>
+            </ComboBox>
+            <Button Background="AliceBlue">Image</Button>
+        </DockPanel>
+        <GroupBox Padding="5" Header="Output" Grid.Column="0" Grid.Row="2">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition Height="10"></RowDefinition>
+                    <RowDefinition Height="30"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0" Grid.Row="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <ContentControl Content="P" Template="{StaticResource MtdInput}" Grid.Column="0" Grid.Row="0"/>
+                    <ContentControl Content="R" Template="{StaticResource MtdInput}" Grid.Column="0" Grid.Row="1"/>
+                </Grid>
+                <Grid Grid.Column="1" Grid.Row="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <ContentControl Content="F" Template="{StaticResource MtdInput}" Grid.Column="0" Grid.Row="0"/>
+                    <ContentControl Content="T" Template="{StaticResource MtdInput}" Grid.Column="0" Grid.Row="1"/>
+                </Grid>
+                <Grid HorizontalAlignment="Center" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2">
+                    <ContentControl Content="Result" Template="{StaticResource MtdInput}" Grid.Column="0" Grid.Row="1"/>
+                </Grid>
+            </Grid>
+        </GroupBox>
     </Grid>
 </Window>
