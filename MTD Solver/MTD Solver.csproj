@@ -67,6 +67,16 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Models\ExchangerIn.cs" />
+    <Compile Include="Models\ExchangerOut.cs" />
+    <Compile Include="Models\Exchangers\CompositeBaseExchanger.cs" />
+    <Compile Include="Models\Exchangers\SimpleBaseExchanger.cs" />
+    <Compile Include="Models\Exchangers\CocurrentExchanger.cs" />
+    <Compile Include="Models\Exchangers\CountercurrentExchanger.cs" />
+    <Compile Include="Models\Exchangers\CrossFlowExchanger.cs" />
+    <Compile Include="Models\Exchangers\IHeatExchanger.cs" />
+    <Compile Include="Models\Exchangers\ShellAndTubeExchanger.cs" />
+    <Compile Include="Models\FluidTemperature.cs" />
     <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -100,6 +110,8 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Utils\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
