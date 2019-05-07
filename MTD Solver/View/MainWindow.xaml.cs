@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MTD_Solver.View.Components;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -25,6 +26,10 @@ namespace MTD_Solver
       string name = assembly.GetCustomAttribute<AssemblyTitleAttribute>().Title;
       string version = assembly.GetCustomAttribute<AssemblyFileVersionAttribute>().Version;
       Title = $"Test Version: {name} {version}";
+    }
+
+    private void Button_Click(object sender, RoutedEventArgs e)
+    {
     }
   }
 }

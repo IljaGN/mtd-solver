@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MTD_Solver"
         mc:Ignorable="d"
+        xmlns:mtd="clr-namespace:MTD_Solver.View.Components"
         Title="MainWindow" Height="350" Width="550" ResizeMode="CanMinimize">
     <Window.Resources>
         <Style TargetType="Window">
@@ -39,19 +40,19 @@
                         <RowDefinition></RowDefinition>
                         <RowDefinition></RowDefinition>
                     </Grid.RowDefinitions>
-                    <ContentControl Content="T1" Template="{StaticResource MtdInput}" Grid.Column="0" Grid.Row="0"/>
-                    <ContentControl Content="T2" Template="{StaticResource MtdInput}" Grid.Column="0" Grid.Row="1"/>
+                    <mtd:MtdInput Title="T1" x:Name="T1" Grid.Column="0" Grid.Row="0"/>
+                    <mtd:MtdInput Title="T2" x:Name="T2" Grid.Column="0" Grid.Row="1"/>
                 </Grid>
                 <Grid Grid.Column="1" Grid.Row="0">
                     <Grid.RowDefinitions>
                         <RowDefinition></RowDefinition>
                         <RowDefinition></RowDefinition>
                     </Grid.RowDefinitions>
-                    <ContentControl Content="t1" Template="{StaticResource MtdInput}" Grid.Column="0" Grid.Row="0"/>
-                    <ContentControl Content="t2" Template="{StaticResource MtdInput}" Grid.Column="0" Grid.Row="1"/>
+                    <mtd:MtdInput Title="t1" x:Name="t1" IsTabStop="False" Grid.Column="0" Grid.Row="0"/>
+                    <mtd:MtdInput Title="t2" x:Name="t2" IsTabStop="False" Grid.Column="0" Grid.Row="1"/>
                 </Grid>
                 <Grid HorizontalAlignment="Center" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2">
-                    <Button Padding="10 0 10 0">Calculate</Button>
+                    <Button Click="Button_Click" Padding="10 0 10 0">Calculate</Button>
                 </Grid>
             </Grid>
         </GroupBox>
@@ -62,13 +63,14 @@
                 Text="Select Heat Exchanger"
                 IsEditable="True"
                 IsReadOnly="True"
+                TabIndex="1"
                 DockPanel.Dock="Top">
                 <!-- TODO: fake data -->
                 <TextBlock>Counterflow</TextBlock>
                 <TextBlock>Shell and Tube</TextBlock>
                 <TextBlock>Crossflow</TextBlock>
             </ComboBox>
-            <Button Background="AliceBlue">Image</Button>
+            <Button Background="AliceBlue" IsTabStop="False">Image</Button>
         </DockPanel>
         <GroupBox Padding="5" Header="Output" Grid.Column="0" Grid.Row="2">
             <Grid>
@@ -86,19 +88,19 @@
                         <RowDefinition></RowDefinition>
                         <RowDefinition></RowDefinition>
                     </Grid.RowDefinitions>
-                    <ContentControl Content="P" Template="{StaticResource MtdInput}" Grid.Column="0" Grid.Row="0"/>
-                    <ContentControl Content="R" Template="{StaticResource MtdInput}" Grid.Column="0" Grid.Row="1"/>
+                    <mtd:MtdInput Title="P" IsTabStop="False" Grid.Column="0" Grid.Row="0"/>
+                    <mtd:MtdInput Title="R" IsTabStop="False" Grid.Column="0" Grid.Row="1"/>
                 </Grid>
                 <Grid Grid.Column="1" Grid.Row="0">
                     <Grid.RowDefinitions>
                         <RowDefinition></RowDefinition>
                         <RowDefinition></RowDefinition>
                     </Grid.RowDefinitions>
-                    <ContentControl Content="F" Template="{StaticResource MtdInput}" Grid.Column="0" Grid.Row="0"/>
-                    <ContentControl Content="T" Template="{StaticResource MtdInput}" Grid.Column="0" Grid.Row="1"/>
+                    <mtd:MtdInput Title="F" IsTabStop="False" Grid.Column="0" Grid.Row="0"/>
+                    <mtd:MtdInput Title="T" IsTabStop="False" Grid.Column="0" Grid.Row="1"/>
                 </Grid>
                 <Grid HorizontalAlignment="Center" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2">
-                    <ContentControl Content="Result" Template="{StaticResource MtdInput}" Grid.Column="0" Grid.Row="1"/>
+                    <mtd:MtdInput Title="Result" Grid.Column="0" Grid.Row="1"/>
                 </Grid>
             </Grid>
         </GroupBox>

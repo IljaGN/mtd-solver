@@ -63,6 +63,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Compile Include="Api\ExchangerType.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -74,9 +75,13 @@
     <Compile Include="Models\Exchangers\CocurrentExchanger.cs" />
     <Compile Include="Models\Exchangers\CountercurrentExchanger.cs" />
     <Compile Include="Models\Exchangers\CrossFlowExchanger.cs" />
-    <Compile Include="Models\Exchangers\IHeatExchanger.cs" />
+    <Compile Include="Api\IHeatExchanger.cs" />
     <Compile Include="Models\Exchangers\ShellAndTubeExchanger.cs" />
     <Compile Include="Models\FluidTemperature.cs" />
+    <Compile Include="Utils\ExchangerFactory.cs" />
+    <Compile Include="View\Components\MtdInput.xaml.cs">
+      <DependentUpon>MtdInput.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -110,8 +115,6 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Utils\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
