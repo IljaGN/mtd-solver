@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MTD_Solver.Api;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,24 +9,23 @@ namespace MTD_Solver.Models.Exchangers
 {
   abstract class CompositeBaseExchanger : IHeatExchanger
   {
-    private CountercurrentExchanger countercurrent;
+    private IHeatExchanger exchanger;
     protected ExchangerOut result;
 
     public CompositeBaseExchanger()
     {
-      countercurrent = new CountercurrentExchanger();
+      exchanger = new CountercurrentExchanger();
       result = new ExchangerOut();
     }
 
     public void SetSourceData(ExchangerIn data)
     {
-      countercurrent.SetSourceData(data);
+      exchanger.SetSourceData(data);
     }
 
     public virtual void Execute()
     {
-      countercurrent.Execute();
-      ExchangerOut pivotData = countercurrent.GetResult();
+      exchanger.Execute();
     }
 
     public ExchangerOut GetResult()
@@ -33,9 +33,9 @@ namespace MTD_Solver.Models.Exchangers
       return result;
     }
 
-    protected ExchangerOut GetCountercurrentExchangerResult()
+    protected ExchangerOut GetInnerExchangerResult()
     {
-      return countercurrent.GetResult();
+      return exchanger.GetResult();
     }
   }
 }

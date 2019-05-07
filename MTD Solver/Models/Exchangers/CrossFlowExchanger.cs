@@ -11,7 +11,7 @@ namespace MTD_Solver.Models.Exchangers
     public override void Execute()
     {
       base.Execute();
-      ExchangerOut pivotData = GetCountercurrentExchangerResult();
+      ExchangerOut pivotData = GetInnerExchangerResult();
     }
   }
 }
