@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:MTD_Solver"
         mc:Ignorable="d"
         xmlns:mtd="clr-namespace:MTD_Solver.View.Components"
+        xmlns:res="clr-namespace:MTD_Solver.Properties"
         Title="MainWindow" Height="350" Width="550" ResizeMode="CanMinimize">
     <Window.Resources>
         <Style TargetType="Window">
@@ -24,7 +25,7 @@
             <ColumnDefinition Width="10"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <GroupBox Padding="5" Header="Input" Grid.Column="0" Grid.Row="0">
+        <GroupBox Padding="5" Header="{x:Static res:Resources.AreaInput}" Grid.Column="0" Grid.Row="0">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition></RowDefinition>
@@ -60,7 +61,7 @@
             <ComboBox
                 Margin="0 0 0 10"
                 Padding="5"
-                Text="Select Heat Exchanger"
+                Text="{x:Static res:Resources.SellectExchanger}"
                 IsEditable="True"
                 IsReadOnly="True"
                 TabIndex="1"
@@ -72,7 +73,7 @@
             </ComboBox>
             <Button Background="AliceBlue" IsTabStop="False">Image</Button>
         </DockPanel>
-        <GroupBox Padding="5" Header="Output" Grid.Column="0" Grid.Row="2">
+        <GroupBox Padding="5" Header="{x:Static res:Resources.AreaOutput}" Grid.Column="0" Grid.Row="2">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition></RowDefinition>
@@ -100,7 +101,7 @@
                     <mtd:MtdInput Title="T" IsTabStop="False" Grid.Column="0" Grid.Row="1"/>
                 </Grid>
                 <Grid HorizontalAlignment="Center" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2">
-                    <mtd:MtdInput Title="Result" Grid.Column="0" Grid.Row="1"/>
+                    <mtd:MtdInput Title="{x:Static res:Resources.Result}" Grid.Column="0" Grid.Row="1"/>
                 </Grid>
             </Grid>
         </GroupBox>

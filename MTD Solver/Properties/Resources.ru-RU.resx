@@ -118,27 +118,27 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AreaInput" xml:space="preserve">
-    <value>Input</value>
+    <value>Ввод</value>
   </data>
   <data name="AreaOutput" xml:space="preserve">
-    <value>Output</value>
+    <value>Вывод</value>
   </data>
   <data name="CocurrentExchanger" xml:space="preserve">
-    <value>Cocurrent</value>
+    <value>Прямоточный</value>
   </data>
   <data name="CountercurrentExchanger" xml:space="preserve">
-    <value>Countercurrent</value>
+    <value>Противоточный</value>
   </data>
   <data name="CrossFlowExchanger" xml:space="preserve">
-    <value>Crossflow</value>
+    <value>Перекрестноточный</value>
   </data>
   <data name="Result" xml:space="preserve">
-    <value>Result</value>
+    <value>Результат</value>
   </data>
   <data name="SellectExchanger" xml:space="preserve">
-    <value>Select Heat Exchanger</value>
+    <value>Выберите теплообменник</value>
   </data>
   <data name="ShellAndTubeExchanger" xml:space="preserve">
-    <value>Shell and Tube</value>
+    <value>Кожухотрубный</value>
   </data>
 </root>

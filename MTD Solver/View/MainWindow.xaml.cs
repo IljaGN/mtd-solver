@@ -1,4 +1,5 @@
-﻿using MTD_Solver.View.Components;
+﻿using MTD_Solver.Api;
+using MTD_Solver.View.Components;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,6 +31,8 @@ namespace MTD_Solver
 
     private void Button_Click(object sender, RoutedEventArgs e)
     {
+      var h = (MtdInput)T1;
+      //T1.Title = ExchangerTypes.
     }
   }
 }

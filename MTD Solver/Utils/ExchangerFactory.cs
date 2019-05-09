@@ -5,17 +5,17 @@ namespace MTD_Solver.Utils
 {
   static class ExchangerFactory
   {
-    public static IHeatExchanger Create(ExchangerType type)
+    public static IHeatExchanger Create(Exchanger.Types type)
     {
       switch (type)
       {
-        case ExchangerType.COCURRENT:
+        case Exchanger.Types.COCURRENT:
           return new CocurrentExchanger();
-        case ExchangerType.COUNTERCURRENT:
+        case Exchanger.Types.COUNTERCURRENT:
           return new CountercurrentExchanger();
-        case ExchangerType.SHELLANDTUBE:
+        case Exchanger.Types.SHELL_AND_TUBE:
           return new ShellAndTubeExchanger();
-        case ExchangerType.CROSSFLOW:
+        case Exchanger.Types.CROSS_FLOW:
           return new CrossFlowExchanger();
         default:
           return new CocurrentExchanger();
