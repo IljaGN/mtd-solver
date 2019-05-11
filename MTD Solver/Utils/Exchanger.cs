@@ -23,10 +23,10 @@ namespace MTD_Solver.Utils
 
     private static readonly Dictionary<Types, string> captions = new Dictionary<Types, string>
     {
-      [Types.COCURRENT] = Types.COCURRENT.ToString().ToLower(),
-      [Types.COUNTERCURRENT] = Types.COUNTERCURRENT.ToString().ToLower(),
-      [Types.SHELL_AND_TUBE] = Types.SHELL_AND_TUBE.ToString().ToLower(),
-      [Types.CROSS_FLOW] = Types.CROSS_FLOW.ToString().ToLower()
+      [Types.COCURRENT] = Properties.Resources.CocurrentExchanger,
+      [Types.COUNTERCURRENT] = Properties.Resources.CountercurrentExchanger,
+      [Types.SHELL_AND_TUBE] = Properties.Resources.ShellAndTubeExchanger,
+      [Types.CROSS_FLOW] = Properties.Resources.CrossFlowExchanger
     };
 
     public static string GetCaptions(Types type)
@@ -36,7 +36,7 @@ namespace MTD_Solver.Utils
 
     public static List<string> GetCaptions()
     {
-      return captions.Values.ToList<string>();
+      return captions.Values.ToList();
     }
   }
 }

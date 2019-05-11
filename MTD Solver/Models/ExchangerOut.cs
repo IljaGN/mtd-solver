@@ -1,13 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace MTD_Solver.Models
 {
-  class ExchangerOut
+  public class ExchangerOut : INotifyPropertyChanged
   {
+    public event PropertyChangedEventHandler PropertyChanged;
+
     public double P { get; private set; }
     public double R { get; private set; }
     public double CorrectionFactor { get; private set; }
@@ -20,6 +23,21 @@ namespace MTD_Solver.Models
       this.R = R;
       this.CorrectionFactor = correctionFactor;
       this.Mtd = mtd;
+
+      AllPropertiesChanged();
+    }
+
+    private void AllPropertiesChanged()
+    {
+      foreach (var propertyInfo in GetType().GetProperties())
+      {
+        OnPropertyChanged(propertyInfo.Name);
+      }
+    }
+
+    private void OnPropertyChanged(string name)
+    {
+      PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
     }
   }
 }

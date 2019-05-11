@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MTD_Solver"
         mc:Ignorable="d"
+        Name="mainWindow"
         xmlns:mtd="clr-namespace:MTD_Solver.View.Components"
         xmlns:res="clr-namespace:MTD_Solver.Properties"
         Title="MainWindow" Height="350" Width="550" ResizeMode="CanMinimize">
@@ -62,19 +63,16 @@
                 Margin="0 0 0 10"
                 Padding="5"
                 Text="{x:Static res:Resources.SellectExchanger}"
+                ItemsSource="{Binding ComboBoxOptions, ElementName=mainWindow}"
                 IsEditable="True"
                 IsReadOnly="True"
                 TabIndex="1"
                 DockPanel.Dock="Top">
-                <!-- TODO: fake data -->
-                <TextBlock>Counterflow</TextBlock>
-                <TextBlock>Shell and Tube</TextBlock>
-                <TextBlock>Crossflow</TextBlock>
             </ComboBox>
             <Button Background="AliceBlue" IsTabStop="False">Image</Button>
         </DockPanel>
         <GroupBox Padding="5" Header="{x:Static res:Resources.AreaOutput}" Grid.Column="0" Grid.Row="2">
-            <Grid>
+            <Grid DataContext="{Binding Out, ElementName=mainWindow}">
                 <Grid.RowDefinitions>
                     <RowDefinition></RowDefinition>
                     <RowDefinition Height="10"></RowDefinition>
@@ -89,19 +87,19 @@
                         <RowDefinition></RowDefinition>
                         <RowDefinition></RowDefinition>
                     </Grid.RowDefinitions>
-                    <mtd:MtdInput Title="P" IsTabStop="False" Grid.Column="0" Grid.Row="0"/>
-                    <mtd:MtdInput Title="R" IsTabStop="False" Grid.Column="0" Grid.Row="1"/>
+                    <mtd:MtdInput Title="P" Value="{Binding P, Mode=OneWay}" IsTabStop="False" Grid.Column="0" Grid.Row="0"/>
+                    <mtd:MtdInput Title="R" Value="{Binding R, Mode=OneWay}" IsTabStop="False" Grid.Column="0" Grid.Row="1"/>
                 </Grid>
                 <Grid Grid.Column="1" Grid.Row="0">
                     <Grid.RowDefinitions>
                         <RowDefinition></RowDefinition>
                         <RowDefinition></RowDefinition>
                     </Grid.RowDefinitions>
-                    <mtd:MtdInput Title="F" IsTabStop="False" Grid.Column="0" Grid.Row="0"/>
-                    <mtd:MtdInput Title="T" IsTabStop="False" Grid.Column="0" Grid.Row="1"/>
+                    <mtd:MtdInput Title="F" Value="{Binding CorrectionFactor, Mode=OneWay}" IsTabStop="False" Grid.Column="0" Grid.Row="0"/>
+                    <mtd:MtdInput Title="T" Value="{Binding Mtd, Mode=OneWay}" IsTabStop="False" Grid.Column="0" Grid.Row="1"/>
                 </Grid>
                 <Grid HorizontalAlignment="Center" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2">
-                    <mtd:MtdInput Title="{x:Static res:Resources.Result}" Grid.Column="0" Grid.Row="1"/>
+                    <mtd:MtdInput Title="{x:Static res:Resources.Result}" Value="{Binding CorrectionMtd, Mode=OneWay}" Grid.Column="0" Grid.Row="1"/>
                 </Grid>
             </Grid>
         </GroupBox>
