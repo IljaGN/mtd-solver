@@ -9,7 +9,7 @@
     <Grid>
         <StackPanel Orientation="Horizontal" DataContext="{Binding ElementName=Input}">
             <Label Content="{Binding Title}"/>
-            <TextBox Width="80" Text="{Binding Value}"/>
+            <TextBox Width="80" Text="{Binding Value, Mode=TwoWay}"/>
             <Label Content="℃"/>
         </StackPanel>
     </Grid>

@@ -15,7 +15,7 @@
         </Style>
     </Window.Resources>
 
-    <Grid Margin="10">
+    <Grid Margin="10" DataContext="{Binding ElementName=mainWindow}">
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
             <RowDefinition Height="10"></RowDefinition>
@@ -27,7 +27,7 @@
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <GroupBox Padding="5" Header="{x:Static res:Resources.AreaInput}" Grid.Column="0" Grid.Row="0">
-            <Grid>
+            <Grid DataContext="{Binding In}">
                 <Grid.RowDefinitions>
                     <RowDefinition></RowDefinition>
                     <RowDefinition Height="10"></RowDefinition>
@@ -37,21 +37,21 @@
                     <ColumnDefinition></ColumnDefinition>
                     <ColumnDefinition></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <Grid Grid.Column="0" Grid.Row="0">
+                <Grid DataContext="{Binding HotFluid}" Grid.Column="0" Grid.Row="0">
                     <Grid.RowDefinitions>
                         <RowDefinition></RowDefinition>
                         <RowDefinition></RowDefinition>
                     </Grid.RowDefinitions>
-                    <mtd:MtdInput Title="T1" x:Name="T1" Grid.Column="0" Grid.Row="0"/>
-                    <mtd:MtdInput Title="T2" x:Name="T2" Grid.Column="0" Grid.Row="1"/>
+                    <mtd:MtdInput Title="T1" Value="{Binding Inlet, Mode=TwoWay}" Grid.Column="0" Grid.Row="0"/>
+                    <mtd:MtdInput Title="T2" Value="{Binding Outlet, Mode=TwoWay}" Grid.Column="0" Grid.Row="1"/>
                 </Grid>
-                <Grid Grid.Column="1" Grid.Row="0">
+                <Grid DataContext="{Binding ColdFluid}" Grid.Column="1" Grid.Row="0">
                     <Grid.RowDefinitions>
                         <RowDefinition></RowDefinition>
                         <RowDefinition></RowDefinition>
                     </Grid.RowDefinitions>
-                    <mtd:MtdInput Title="t1" x:Name="t1" IsTabStop="False" Grid.Column="0" Grid.Row="0"/>
-                    <mtd:MtdInput Title="t2" x:Name="t2" IsTabStop="False" Grid.Column="0" Grid.Row="1"/>
+                    <mtd:MtdInput Title="t1" Value="{Binding Inlet, Mode=TwoWay}" IsTabStop="False" Grid.Column="0" Grid.Row="0"/>
+                    <mtd:MtdInput Title="t2" Value="{Binding Outlet, Mode=TwoWay}" IsTabStop="False" Grid.Column="0" Grid.Row="1"/>
                 </Grid>
                 <Grid HorizontalAlignment="Center" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2">
                     <Button Click="Button_Click" Padding="10 0 10 0">Calculate</Button>
@@ -63,7 +63,7 @@
                 Margin="0 0 0 10"
                 Padding="5"
                 Text="{x:Static res:Resources.SellectExchanger}"
-                ItemsSource="{Binding ComboBoxOptions, ElementName=mainWindow}"
+                ItemsSource="{Binding ComboBoxOptions}"
                 IsEditable="True"
                 IsReadOnly="True"
                 TabIndex="1"
@@ -72,7 +72,7 @@
             <Button Background="AliceBlue" IsTabStop="False">Image</Button>
         </DockPanel>
         <GroupBox Padding="5" Header="{x:Static res:Resources.AreaOutput}" Grid.Column="0" Grid.Row="2">
-            <Grid DataContext="{Binding Out, ElementName=mainWindow}">
+            <Grid DataContext="{Binding Out}">
                 <Grid.RowDefinitions>
                     <RowDefinition></RowDefinition>
                     <RowDefinition Height="10"></RowDefinition>

@@ -23,13 +23,15 @@ namespace MTD_Solver
 {
   public partial class MainWindow : Window
   {
-    public ExchangerOut Out { get; set; }
     public List<string> ComboBoxOptions { get; set; }
+    public ExchangerIn In { get; set; }
+    public ExchangerOut Out { get; set; }
 
     public MainWindow()
     {
-      Out = new ExchangerOut();
       ComboBoxOptions = Exchanger.GetCaptions();
+      In = new ExchangerIn();
+      Out = new ExchangerOut();
 
       InitializeComponent();
       var assembly = Assembly.GetExecutingAssembly();

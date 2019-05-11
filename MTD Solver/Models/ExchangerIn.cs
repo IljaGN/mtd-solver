@@ -6,9 +6,15 @@ using System.Threading.Tasks;
 
 namespace MTD_Solver.Models
 {
-  class ExchangerIn
+  public class ExchangerIn
   {
-    public FluidTemperature ColdFluid;
-    public FluidTemperature HotFluid;
+    public FluidTemperature ColdFluid { get; set; }
+    public FluidTemperature HotFluid { get; set; }
+
+    public ExchangerIn()
+    {
+      ColdFluid = new FluidTemperature();
+      HotFluid = new FluidTemperature();
+    }
   }
 }
