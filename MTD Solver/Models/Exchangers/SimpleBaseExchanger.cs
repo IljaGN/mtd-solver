@@ -1,9 +1,5 @@
-﻿using MTD_Solver.Api;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
+using MTD_Solver.Api;
 
 namespace MTD_Solver.Models.Exchangers
 {
