@@ -54,7 +54,7 @@
                     <mtd:MtdInput Title="t2" Value="{Binding Outlet, Mode=TwoWay}" IsTabStop="False" Grid.Column="0" Grid.Row="1"/>
                 </Grid>
                 <Grid HorizontalAlignment="Center" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2">
-                    <Button Click="Button_Click" Padding="10 0 10 0">Calculate</Button>
+                    <Button Click="Button_Click" IsEnabled="{Binding IsButtonEnabled, ElementName=mainWindow}" Padding="10 0 10 0">Calculate</Button>
                 </Grid>
             </Grid>
         </GroupBox>
@@ -62,12 +62,15 @@
             <ComboBox
                 Margin="0 0 0 10"
                 Padding="5"
-                Text="{x:Static res:Resources.SellectExchanger}"
-                ItemsSource="{Binding ComboBoxOptions}"
                 IsEditable="True"
                 IsReadOnly="True"
                 TabIndex="1"
-                DockPanel.Dock="Top">
+                DockPanel.Dock="Top"
+                Text="{x:Static res:Resources.SellectExchanger}"
+                ItemsSource="{Binding ComboBoxOptions}"
+                SelectedValue="{Binding ComboBoxSelected, Mode=OneWayToSource}"
+                DisplayMemberPath="Caption"
+                SelectionChanged="ComboBox_SelectionChanged">
             </ComboBox>
             <Button Background="AliceBlue" IsTabStop="False">Image</Button>
         </DockPanel>

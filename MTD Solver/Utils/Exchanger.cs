@@ -27,9 +27,9 @@ namespace MTD_Solver.Utils
     //  return captions[type];
     //}
 
-    public static List<string> GetCaptions()
+    public static List<EcxhangerType> GetTypes()
     {
-      return types.ConvertAll(t => t.Caption).ToList();
+      return types;
     }
   }
 }
