@@ -59,6 +59,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Exchangers\ShellAndTubeSettings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -82,6 +86,9 @@
     <Compile Include="Utils\Exchanger.cs" />
     <Compile Include="View\Components\MtdInput.xaml.cs">
       <DependentUpon>MtdInput.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Exchangers\ShellAndTubeSettings.xaml.cs">
+      <DependentUpon>ShellAndTubeSettings.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

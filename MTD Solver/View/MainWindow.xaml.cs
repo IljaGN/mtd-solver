@@ -2,6 +2,7 @@
 using MTD_Solver.Models;
 using MTD_Solver.Utils;
 using MTD_Solver.View.Components;
+using MTD_Solver.View.Exchangers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -26,7 +27,7 @@ namespace MTD_Solver
     private IHeatExchanger exchanger;
     private ExchangerOut result; //TODO: fix!
     public ExchangerIn In { get; set; }
-    public string exchangerSettings; //TODO: create!
+    public int exchangerSettings; //TODO: create!
 
     public ExchangerOut Out { get; set; }
 
@@ -55,6 +56,13 @@ namespace MTD_Solver
 
     private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
+      if (ComboBoxSelected.Type == Types.SHELL_AND_TUBE)
+      {
+        ShellAndTubeSettings settingsWindow = new ShellAndTubeSettings();
+        settingsWindow.Owner = this;
+        settingsWindow.ShowDialog();
+      }
+
       exchanger = ExchangerFactory.Create(ComboBoxSelected.Type, exchangerSettings);
       exchanger.SetSourceData(In);
       result = exchanger.GetResult();

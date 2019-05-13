@@ -1,0 +1,23 @@
+﻿<Window x:Class="MTD_Solver.View.Exchangers.ShellAndTubeSettings"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MTD_Solver.View.Exchangers"
+        mc:Ignorable="d"
+        Name="Settings"
+        Title="ShellAndTubeSettings" Height="110" Width="200" ResizeMode="CanMinimize">
+    <Grid DataContext="{Binding ElementName=Settings}">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="45"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="120"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="Number of Shells:" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBox Text="{Binding ShellCount}" Margin="0 0 10 0" VerticalAlignment="Center" Grid.Column="2"/>
+        <Button Margin="45 10" Grid.Row="1" Grid.ColumnSpan="2" Click="Button_Click">Ok</Button>
+    </Grid>
+</Window>

@@ -8,6 +8,13 @@ namespace MTD_Solver.Models.Exchangers
 {
   class ShellAndTubeExchanger : CompositeBaseExchanger
   {
+    private int shellCount;
+
+    public ShellAndTubeExchanger(int shellCount)
+    {
+      this.shellCount = shellCount;
+    }
+
     public override void Execute()
     {
       base.Execute();
@@ -31,7 +38,7 @@ namespace MTD_Solver.Models.Exchangers
       double _1_pr = 1 - data.P * data.R;
       double _1_p = 1 - data.P;
       double quotient = _1_pr / _1_p;
-      double radical = Math.Pow(quotient, 1 / 3);
+      double radical = Math.Pow(quotient, 1D / shellCount);
       return (radical - 1) / (radical - data.R);
     }
   }

@@ -17,38 +17,38 @@
 
     <Grid Margin="10" DataContext="{Binding ElementName=mainWindow}">
         <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
-            <RowDefinition Height="10"></RowDefinition>
-            <RowDefinition></RowDefinition>
+            <RowDefinition/>
+            <RowDefinition Height="10"/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*"></ColumnDefinition>
-            <ColumnDefinition Width="10"></ColumnDefinition>
-            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <GroupBox Padding="5" Header="{x:Static res:Resources.AreaInput}" Grid.Column="0" Grid.Row="0">
             <Grid DataContext="{Binding In}">
                 <Grid.RowDefinitions>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition Height="10"></RowDefinition>
-                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="30"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <Grid DataContext="{Binding HotFluid}" Grid.Column="0" Grid.Row="0">
                     <Grid.RowDefinitions>
-                        <RowDefinition></RowDefinition>
-                        <RowDefinition></RowDefinition>
+                        <RowDefinition/>
+                        <RowDefinition/>
                     </Grid.RowDefinitions>
                     <mtd:MtdInput Title="T1" Value="{Binding Inlet, Mode=TwoWay}" Grid.Column="0" Grid.Row="0"/>
                     <mtd:MtdInput Title="T2" Value="{Binding Outlet, Mode=TwoWay}" Grid.Column="0" Grid.Row="1"/>
                 </Grid>
                 <Grid DataContext="{Binding ColdFluid}" Grid.Column="1" Grid.Row="0">
                     <Grid.RowDefinitions>
-                        <RowDefinition></RowDefinition>
-                        <RowDefinition></RowDefinition>
+                        <RowDefinition/>
+                        <RowDefinition/>
                     </Grid.RowDefinitions>
                     <mtd:MtdInput Title="t1" Value="{Binding Inlet, Mode=TwoWay}" IsTabStop="False" Grid.Column="0" Grid.Row="0"/>
                     <mtd:MtdInput Title="t2" Value="{Binding Outlet, Mode=TwoWay}" IsTabStop="False" Grid.Column="0" Grid.Row="1"/>
@@ -77,26 +77,26 @@
         <GroupBox Padding="5" Header="{x:Static res:Resources.AreaOutput}" Grid.Column="0" Grid.Row="2">
             <Grid DataContext="{Binding Out}">
                 <Grid.RowDefinitions>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition Height="10"></RowDefinition>
-                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="30"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <Grid Grid.Column="0" Grid.Row="0">
                     <Grid.RowDefinitions>
-                        <RowDefinition></RowDefinition>
-                        <RowDefinition></RowDefinition>
+                        <RowDefinition/>
+                        <RowDefinition/>
                     </Grid.RowDefinitions>
                     <mtd:MtdInput Title="P" Value="{Binding P, Mode=OneWay}" IsTabStop="False" Grid.Column="0" Grid.Row="0"/>
                     <mtd:MtdInput Title="R" Value="{Binding R, Mode=OneWay}" IsTabStop="False" Grid.Column="0" Grid.Row="1"/>
                 </Grid>
                 <Grid Grid.Column="1" Grid.Row="0">
                     <Grid.RowDefinitions>
-                        <RowDefinition></RowDefinition>
-                        <RowDefinition></RowDefinition>
+                        <RowDefinition/>
+                        <RowDefinition/>
                     </Grid.RowDefinitions>
                     <mtd:MtdInput Title="F" Value="{Binding CorrectionFactor, Mode=OneWay}" IsTabStop="False" Grid.Column="0" Grid.Row="0"/>
                     <mtd:MtdInput Title="T" Value="{Binding Mtd, Mode=OneWay}" IsTabStop="False" Grid.Column="0" Grid.Row="1"/>
