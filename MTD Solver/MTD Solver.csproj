@@ -55,11 +55,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="View\Components\Exchangers\CrossFlowSettings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Components\MtdInput.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Exchangers\ShellAndTubeSettings.xaml">
+    <Page Include="View\Components\Exchangers\ShellAndTubeSettings.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -84,10 +88,13 @@
     <Compile Include="Models\FluidTemperature.cs" />
     <Compile Include="Utils\ExchangerFactory.cs" />
     <Compile Include="Utils\Exchanger.cs" />
+    <Compile Include="View\Components\Exchangers\CrossFlowSettings.xaml.cs">
+      <DependentUpon>CrossFlowSettings.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Components\MtdInput.xaml.cs">
       <DependentUpon>MtdInput.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Exchangers\ShellAndTubeSettings.xaml.cs">
+    <Compile Include="View\Components\Exchangers\ShellAndTubeSettings.xaml.cs">
       <DependentUpon>ShellAndTubeSettings.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\MainWindow.xaml.cs">

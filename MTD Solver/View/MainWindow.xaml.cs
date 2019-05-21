@@ -2,7 +2,6 @@
 using MTD_Solver.Models;
 using MTD_Solver.Utils;
 using MTD_Solver.View.Components;
-using MTD_Solver.View.Exchangers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -58,9 +57,6 @@ namespace MTD_Solver
     {
       if (ComboBoxSelected.Type == Types.SHELL_AND_TUBE)
       {
-        ShellAndTubeSettings settingsWindow = new ShellAndTubeSettings();
-        settingsWindow.Owner = this;
-        settingsWindow.ShowDialog();
       }
 
       exchanger = ExchangerFactory.Create(ComboBoxSelected.Type, exchangerSettings);

@@ -3,12 +3,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:MTD_Solver"
         mc:Ignorable="d"
         Name="mainWindow"
-        xmlns:mtd="clr-namespace:MTD_Solver.View.Components"
-        xmlns:res="clr-namespace:MTD_Solver.Properties"
-        Title="MainWindow" Height="350" Width="550" ResizeMode="CanMinimize">
+        xmlns:com="clr-namespace:MTD_Solver.View.Components"
+        xmlns:exc="clr-namespace:MTD_Solver.View.Components.Exchangers"
+        xmlns:r="clr-namespace:MTD_Solver.Properties"
+        Title="MainWindow" Height="350" Width="570" ResizeMode="CanMinimize">
     <Window.Resources>
         <Style TargetType="Window">
             <Setter Property="FontSize" Value="15"/>
@@ -22,11 +22,11 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="1.7*"/>
             <ColumnDefinition Width="10"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <GroupBox Padding="5" Header="{x:Static res:Resources.AreaInput}" Grid.Column="0" Grid.Row="0">
+        <GroupBox Padding="5" Header="{x:Static r:Resources.AreaInput}" Grid.Column="0" Grid.Row="0">
             <Grid DataContext="{Binding In}">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
@@ -42,16 +42,16 @@
                         <RowDefinition/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    <mtd:MtdInput Title="T1" Value="{Binding Inlet, Mode=TwoWay}" Grid.Column="0" Grid.Row="0"/>
-                    <mtd:MtdInput Title="T2" Value="{Binding Outlet, Mode=TwoWay}" Grid.Column="0" Grid.Row="1"/>
+                    <com:MtdInput Title="T1" Value="{Binding Inlet, Mode=TwoWay}" Grid.Column="0" Grid.Row="0"/>
+                    <com:MtdInput Title="T2" Value="{Binding Outlet, Mode=TwoWay}" Grid.Column="0" Grid.Row="1"/>
                 </Grid>
                 <Grid DataContext="{Binding ColdFluid}" Grid.Column="1" Grid.Row="0">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    <mtd:MtdInput Title="t1" Value="{Binding Inlet, Mode=TwoWay}" IsTabStop="False" Grid.Column="0" Grid.Row="0"/>
-                    <mtd:MtdInput Title="t2" Value="{Binding Outlet, Mode=TwoWay}" IsTabStop="False" Grid.Column="0" Grid.Row="1"/>
+                    <com:MtdInput Title="t1" Value="{Binding Inlet, Mode=TwoWay}" IsTabStop="False" Grid.Column="0" Grid.Row="0"/>
+                    <com:MtdInput Title="t2" Value="{Binding Outlet, Mode=TwoWay}" IsTabStop="False" Grid.Column="0" Grid.Row="1"/>
                 </Grid>
                 <Grid HorizontalAlignment="Center" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2">
                     <Button Click="Button_Click" IsEnabled="{Binding IsButtonEnabled, ElementName=mainWindow}" Padding="10 0 10 0">Calculate</Button>
@@ -60,21 +60,50 @@
         </GroupBox>
         <DockPanel LastChildFill="True" Grid.Column="2" Grid.Row="0" Grid.RowSpan="3">
             <ComboBox
+                x:Name="comboBox"
                 Margin="0 0 0 10"
                 Padding="5"
                 IsEditable="True"
                 IsReadOnly="True"
                 TabIndex="1"
                 DockPanel.Dock="Top"
-                Text="{x:Static res:Resources.SellectExchanger}"
+                Text="{x:Static r:Resources.SellectExchanger}"
                 ItemsSource="{Binding ComboBoxOptions}"
                 SelectedValue="{Binding ComboBoxSelected, Mode=OneWayToSource}"
                 DisplayMemberPath="Caption"
                 SelectionChanged="ComboBox_SelectionChanged">
             </ComboBox>
+            <exc:ShellAndTubeSettings
+                Margin="0 0 0 10"
+                DockPanel.Dock="Top">
+                <exc:ShellAndTubeSettings.Style>
+                    <Style>
+                        <Setter Property="GroupBox.Visibility" Value="Collapsed"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding SelectedValue.Type, ElementName=comboBox}" Value="SHELL_AND_TUBE">
+                                <Setter Property="GroupBox.Visibility" Value="Visible"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </exc:ShellAndTubeSettings.Style>
+            </exc:ShellAndTubeSettings>
+            <exc:CrossFlowSettings
+                Margin="0 0 0 10"
+                DockPanel.Dock="Top">
+                <exc:CrossFlowSettings.Style>
+                    <Style>
+                        <Setter Property="GroupBox.Visibility" Value="Collapsed"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding SelectedValue.Type, ElementName=comboBox}" Value="CROSS_FLOW">
+                                <Setter Property="GroupBox.Visibility" Value="Visible"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </exc:CrossFlowSettings.Style>
+            </exc:CrossFlowSettings>
             <Button Background="AliceBlue" IsTabStop="False">Image</Button>
         </DockPanel>
-        <GroupBox Padding="5" Header="{x:Static res:Resources.AreaOutput}" Grid.Column="0" Grid.Row="2">
+        <GroupBox Padding="5" Header="{x:Static r:Resources.AreaOutput}" Grid.Column="0" Grid.Row="2">
             <Grid DataContext="{Binding Out}">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
@@ -90,19 +119,19 @@
                         <RowDefinition/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    <mtd:MtdInput Title="P" Value="{Binding P, Mode=OneWay}" IsTabStop="False" Grid.Column="0" Grid.Row="0"/>
-                    <mtd:MtdInput Title="R" Value="{Binding R, Mode=OneWay}" IsTabStop="False" Grid.Column="0" Grid.Row="1"/>
+                    <com:MtdInput Title="P" Value="{Binding P, Mode=OneWay}" IsTabStop="False" Grid.Column="0" Grid.Row="0"/>
+                    <com:MtdInput Title="R" Value="{Binding R, Mode=OneWay}" IsTabStop="False" Grid.Column="0" Grid.Row="1"/>
                 </Grid>
                 <Grid Grid.Column="1" Grid.Row="0">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    <mtd:MtdInput Title="F" Value="{Binding CorrectionFactor, Mode=OneWay}" IsTabStop="False" Grid.Column="0" Grid.Row="0"/>
-                    <mtd:MtdInput Title="T" Value="{Binding Mtd, Mode=OneWay}" IsTabStop="False" Grid.Column="0" Grid.Row="1"/>
+                    <com:MtdInput Title="F" Value="{Binding CorrectionFactor, Mode=OneWay}" IsTabStop="False" Grid.Column="0" Grid.Row="0"/>
+                    <com:MtdInput Title="T" Value="{Binding Mtd, Mode=OneWay}" IsTabStop="False" Grid.Column="0" Grid.Row="1"/>
                 </Grid>
                 <Grid HorizontalAlignment="Center" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2">
-                    <mtd:MtdInput Title="{x:Static res:Resources.Result}" Value="{Binding CorrectionMtd, Mode=OneWay}" Grid.Column="0" Grid.Row="1"/>
+                    <com:MtdInput Title="{x:Static r:Resources.Result}" Value="{Binding CorrectionMtd, Mode=OneWay}" Grid.Column="0" Grid.Row="1"/>
                 </Grid>
             </Grid>
         </GroupBox>
