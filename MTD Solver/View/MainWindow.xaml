@@ -8,13 +8,8 @@
         xmlns:com="clr-namespace:MTD_Solver.View.Components"
         xmlns:exc="clr-namespace:MTD_Solver.View.Components.Exchangers"
         xmlns:r="clr-namespace:MTD_Solver.Properties"
-        Title="MainWindow" Height="350" Width="570" ResizeMode="CanMinimize">
-    <Window.Resources>
-        <Style TargetType="Window">
-            <Setter Property="FontSize" Value="15"/>
-        </Style>
-    </Window.Resources>
-
+        Height="350" Width="570" ResizeMode="CanMinimize"
+        Title="MainWindow" FontSize="15">
     <Grid Margin="10" DataContext="{Binding ElementName=mainWindow}">
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -61,7 +56,7 @@
         <DockPanel LastChildFill="True" Grid.Column="2" Grid.Row="0" Grid.RowSpan="3">
             <ComboBox
                 x:Name="comboBox"
-                Margin="0 0 0 10"
+                Margin="0 0 0 5"
                 Padding="5"
                 IsEditable="True"
                 IsReadOnly="True"
@@ -73,34 +68,52 @@
                 DisplayMemberPath="Caption"
                 SelectionChanged="ComboBox_SelectionChanged">
             </ComboBox>
-            <exc:ShellAndTubeSettings
+            <GroupBox
+                Header="{x:Static r:Resources.AreaExchangerSettings}"
                 Margin="0 0 0 10"
+                Padding="5"
                 DockPanel.Dock="Top">
-                <exc:ShellAndTubeSettings.Style>
+                <GroupBox.Style>
                     <Style>
                         <Setter Property="GroupBox.Visibility" Value="Collapsed"/>
                         <Style.Triggers>
                             <DataTrigger Binding="{Binding SelectedValue.Type, ElementName=comboBox}" Value="SHELL_AND_TUBE">
                                 <Setter Property="GroupBox.Visibility" Value="Visible"/>
                             </DataTrigger>
-                        </Style.Triggers>
-                    </Style>
-                </exc:ShellAndTubeSettings.Style>
-            </exc:ShellAndTubeSettings>
-            <exc:CrossFlowSettings
-                Margin="0 0 0 10"
-                DockPanel.Dock="Top">
-                <exc:CrossFlowSettings.Style>
-                    <Style>
-                        <Setter Property="GroupBox.Visibility" Value="Collapsed"/>
-                        <Style.Triggers>
                             <DataTrigger Binding="{Binding SelectedValue.Type, ElementName=comboBox}" Value="CROSS_FLOW">
                                 <Setter Property="GroupBox.Visibility" Value="Visible"/>
                             </DataTrigger>
                         </Style.Triggers>
                     </Style>
-                </exc:CrossFlowSettings.Style>
-            </exc:CrossFlowSettings>
+                </GroupBox.Style>
+                <StackPanel>
+                    <exc:ShellAndTubeSettings>
+                        <exc:ShellAndTubeSettings.Style>
+                            <Style>
+                                <Setter Property="GroupBox.Visibility" Value="Collapsed"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding SelectedValue.Type, ElementName=comboBox}" Value="SHELL_AND_TUBE">
+                                        <Setter Property="GroupBox.Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </exc:ShellAndTubeSettings.Style>
+                    </exc:ShellAndTubeSettings>
+                    <exc:CrossFlowSettings>
+                        <exc:CrossFlowSettings.Style>
+                            <Style>
+                                <Setter Property="GroupBox.Visibility" Value="Collapsed"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding SelectedValue.Type, ElementName=comboBox}" Value="CROSS_FLOW">
+                                        <Setter Property="GroupBox.Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </exc:CrossFlowSettings.Style>
+                    </exc:CrossFlowSettings>
+                    <Button Margin="35 10 35 0" Content="{x:Static r:Resources.BtnApply}"/>
+                </StackPanel>
+            </GroupBox>
             <Button Background="AliceBlue" IsTabStop="False">Image</Button>
         </DockPanel>
         <GroupBox Padding="5" Header="{x:Static r:Resources.AreaOutput}" Grid.Column="0" Grid.Row="2">

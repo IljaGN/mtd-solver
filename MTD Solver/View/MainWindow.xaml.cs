@@ -19,7 +19,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MTD_Solver
+namespace MTD_Solver // TODO -> View
 {
   public partial class MainWindow : Window, INotifyPropertyChanged
   {

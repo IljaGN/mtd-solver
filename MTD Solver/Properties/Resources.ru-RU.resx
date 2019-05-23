@@ -117,11 +117,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AreaExchangerSettings" xml:space="preserve">
+    <value>Настройки</value>
+  </data>
   <data name="AreaInput" xml:space="preserve">
     <value>Ввод</value>
   </data>
   <data name="AreaOutput" xml:space="preserve">
     <value>Вывод</value>
+  </data>
+  <data name="BtnApply" xml:space="preserve">
+    <value>Применить</value>
   </data>
   <data name="CocurrentExchanger" xml:space="preserve">
     <value>Прямоточный</value>

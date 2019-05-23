@@ -6,19 +6,12 @@
         xmlns:local="clr-namespace:MTD_Solver.View.Components.Exchangers"
         mc:Ignorable="d"
         Name="Settings">
-    <GroupBox>
-        <Grid DataContext="{Binding ElementName=Settings}">
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition Height="45"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="120"/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <TextBlock Text="Number of Shells:" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <TextBox Text="{Binding ShellCount}" Margin="0 0 10 0" VerticalAlignment="Center" Grid.Column="2"/>
-            <Button Margin="45 10" Grid.Row="1" Grid.ColumnSpan="2">Ok</Button>
-        </Grid>
-    </GroupBox>
+    <Grid DataContext="{Binding ElementName=Settings}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="Number of Shells:" VerticalAlignment="Center" Grid.Column="0"/>
+        <TextBox Text="{Binding ShellCount}" VerticalAlignment="Center" Grid.Column="1"/>
+    </Grid>
 </UserControl>
