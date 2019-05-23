@@ -1,18 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MTD_Solver.Api
+﻿namespace MTD_Solver.Api
 {
   public class EcxhangerType
   {
-    public Types Type { get; private set; }
+    public Type Type { get; private set; }
     public string Caption { get; private set; }
     public string Image { get; private set; }
 
-    public EcxhangerType(Types type, string caption, string image)
+    public EcxhangerType(Type type, string caption, string image)
     {
       Type = type;
       Caption = caption;
@@ -20,7 +14,7 @@ namespace MTD_Solver.Api
     }
   }
 
-  public enum Types
+  public enum Type
   {
     COCURRENT,
     COUNTERCURRENT,

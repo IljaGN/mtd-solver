@@ -26,7 +26,7 @@ namespace MTD_Solver.View
     private IHeatExchanger exchanger;
     public ExchangerIn In { get; set; }
     public ExchangerOut Out { get; set; }
-    public int exchangerSettings; //TODO: create!
+    private IExchangerSettings exchangerSettings;
 
     public List<EcxhangerType> ComboBoxOptions => Exchanger.GetTypes();
     public EcxhangerType ComboBoxSelected { get; set; }

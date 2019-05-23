@@ -11,10 +11,10 @@ namespace MTD_Solver.Utils
   {
     private static readonly List<EcxhangerType> types = new List<EcxhangerType>
     {
-      new EcxhangerType(Types.COCURRENT, Properties.Resources.CocurrentExchanger, ""),
-      new EcxhangerType(Types.COUNTERCURRENT, Properties.Resources.CountercurrentExchanger, ""),
-      new EcxhangerType(Types.SHELL_AND_TUBE, Properties.Resources.ShellAndTubeExchanger, ""),
-      new EcxhangerType(Types.CROSS_FLOW, Properties.Resources.CrossFlowExchanger, "")
+      new EcxhangerType(Api.Type.COCURRENT, Properties.Resources.CocurrentExchanger, ""),
+      new EcxhangerType(Api.Type.COUNTERCURRENT, Properties.Resources.CountercurrentExchanger, ""),
+      new EcxhangerType(Api.Type.SHELL_AND_TUBE, Properties.Resources.ShellAndTubeExchanger, ""),
+      new EcxhangerType(Api.Type.CROSS_FLOW, Properties.Resources.CrossFlowExchanger, "")
     };
 
     //public static Types TypeValueOf(string typeName)

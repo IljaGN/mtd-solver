@@ -6,9 +6,9 @@ namespace MTD_Solver.Models.Exchangers
   {
     private readonly int shellCount;
 
-    public ShellAndTubeExchanger(int shellCount)
+    public ShellAndTubeExchanger(ShellAndTubeExchangerSettings settings)
     {
-      this.shellCount = shellCount;
+      shellCount = settings.ShellCount;
     }
 
     public override void Execute()

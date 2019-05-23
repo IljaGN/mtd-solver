@@ -72,6 +72,7 @@
       <SubType>Designer</SubType>
     </Page>
     <Compile Include="Api\EcxhangerType.cs" />
+    <Compile Include="Api\IExchangerSettings.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -79,12 +80,13 @@
     <Compile Include="Models\ExchangerIn.cs" />
     <Compile Include="Models\ExchangerOut.cs" />
     <Compile Include="Models\Exchangers\CompositeBaseExchanger.cs" />
+    <Compile Include="Models\Exchangers\ShellAndTube\ShellAndTubeExchangerSettings.cs" />
     <Compile Include="Models\Exchangers\SimpleBaseExchanger.cs" />
     <Compile Include="Models\Exchangers\CocurrentExchanger.cs" />
     <Compile Include="Models\Exchangers\CountercurrentExchanger.cs" />
-    <Compile Include="Models\Exchangers\CrossFlowExchanger.cs" />
+    <Compile Include="Models\Exchangers\CrossFlow\CrossFlowExchanger.cs" />
     <Compile Include="Api\IHeatExchanger.cs" />
-    <Compile Include="Models\Exchangers\ShellAndTubeExchanger.cs" />
+    <Compile Include="Models\Exchangers\ShellAndTube\ShellAndTubeExchanger.cs" />
     <Compile Include="Models\FluidTemperature.cs" />
     <Compile Include="Utils\ExchangerFactory.cs" />
     <Compile Include="Utils\Exchanger.cs" />
