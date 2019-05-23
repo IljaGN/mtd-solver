@@ -1,41 +1,33 @@
 ﻿using MTD_Solver.Api;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MTD_Solver.Models.Exchangers
 {
   abstract class CompositeBaseExchanger : IHeatExchanger
   {
     private IHeatExchanger exchanger;
+    protected ExchangerOut innerExchangerResult;
     protected ExchangerOut result;
 
     public CompositeBaseExchanger()
     {
       exchanger = new CountercurrentExchanger();
-      result = new ExchangerOut();
+      innerExchangerResult = new ExchangerOut();
+      exchanger.BindResultData(innerExchangerResult);
     }
 
-    public void SetSourceData(ExchangerIn data)
+    public void BindSourceData(ExchangerIn data)
     {
-      exchanger.SetSourceData(data);
+      exchanger.BindSourceData(data);
+    }
+
+    public void BindResultData(ExchangerOut data)
+    {
+      result = data;
     }
 
     public virtual void Execute()
     {
       exchanger.Execute();
-    }
-
-    public ExchangerOut GetResult()
-    {
-      return result;
-    }
-
-    protected ExchangerOut GetInnerExchangerResult()
-    {
-      return exchanger.GetResult();
     }
   }
 }

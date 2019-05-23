@@ -19,16 +19,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MTD_Solver // TODO -> View
+namespace MTD_Solver.View
 {
   public partial class MainWindow : Window, INotifyPropertyChanged
   {
     private IHeatExchanger exchanger;
-    private ExchangerOut result; //TODO: fix!
     public ExchangerIn In { get; set; }
-    public int exchangerSettings; //TODO: create!
-
     public ExchangerOut Out { get; set; }
+    public int exchangerSettings; //TODO: create!
 
     public List<EcxhangerType> ComboBoxOptions => Exchanger.GetTypes();
     public EcxhangerType ComboBoxSelected { get; set; }
@@ -50,18 +48,13 @@ namespace MTD_Solver // TODO -> View
     private void Button_Click(object sender, RoutedEventArgs e)
     {
       exchanger.Execute();
-      Out.Update(result.P, result.R, result.CorrectionFactor, result.Mtd);
     }
 
     private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-      if (ComboBoxSelected.Type == Types.SHELL_AND_TUBE)
-      {
-      }
-
       exchanger = ExchangerFactory.Create(ComboBoxSelected.Type, exchangerSettings);
-      exchanger.SetSourceData(In);
-      result = exchanger.GetResult();
+      exchanger.BindSourceData(In);
+      exchanger.BindResultData(Out);
       PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IsButtonEnabled)));
     }
     public event PropertyChangedEventHandler PropertyChanged;  //TODO: delete!

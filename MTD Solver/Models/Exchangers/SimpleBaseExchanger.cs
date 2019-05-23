@@ -12,14 +12,14 @@ namespace MTD_Solver.Models.Exchangers
     protected ExchangerIn temperature;
     protected ExchangerOut result;
 
-    public SimpleBaseExchanger()
-    {
-      result = new ExchangerOut();
-    }
-
-    public void SetSourceData(ExchangerIn data)
+    public void BindSourceData(ExchangerIn data)
     {
       temperature = data;
+    }
+
+    public void BindResultData(ExchangerOut data)
+    {
+      result = data;
     }
 
     public void Execute()
@@ -29,11 +29,6 @@ namespace MTD_Solver.Models.Exchangers
       double logarithmicDifference = Math.Log(greatDifference / smallDifference);
       double mtd = (greatDifference - smallDifference) / logarithmicDifference;
       result.Update(P, R, CORRECTION_FACTOR, mtd);
-    }
-
-    public ExchangerOut GetResult()
-    {
-      return result;
     }
 
     abstract protected double GetGreatTemperatureDifference();

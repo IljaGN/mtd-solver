@@ -4,8 +4,8 @@ namespace MTD_Solver.Api
 {
   interface IHeatExchanger
   {
-    void SetSourceData(ExchangerIn data);
+    void BindSourceData(ExchangerIn data);
+    void BindResultData(ExchangerOut data);
     void Execute();
-    ExchangerOut GetResult();
   }
 }
