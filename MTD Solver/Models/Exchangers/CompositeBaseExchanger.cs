@@ -1,4 +1,5 @@
-﻿using MTD_Solver.Api;
+﻿using System;
+using MTD_Solver.Api;
 
 namespace MTD_Solver.Models.Exchangers
 {
@@ -28,6 +29,30 @@ namespace MTD_Solver.Models.Exchangers
     public virtual void Execute()
     {
       exchanger.Execute();
+      ExchangerOut ir = innerExchangerResult;
+      result.Update(ir.P, ir.R, DefineCorrectionFactor(ir), ir.Mtd);
     }
+
+    protected double Sqrt(double value)
+    {
+      return Math.Sqrt(value);
+    }
+
+    protected double Lg(double value)
+    {
+      return Math.Log10(value);
+    }
+
+    protected double Ln(double value)
+    {
+      return Math.Log(value);
+    }
+
+    protected double Pow(double _base, double power)
+    {
+      return Math.Pow(_base, power);
+    }
+
+    abstract protected double DefineCorrectionFactor(ExchangerOut data);
   }
 }

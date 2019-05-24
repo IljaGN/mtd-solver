@@ -15,11 +15,16 @@ namespace MTD_Solver.Utils
           return new CountercurrentExchanger();
         case Type.SHELL_AND_TUBE:
           return new ShellAndTubeExchanger((ShellAndTubeExchangerSettings)settings);
-        //case Exchanger.Types.CROSS_FLOW:
-        //  return new CrossFlowExchanger();
+        case Type.CROSS_FLOW:
+          return CrossFlowExchanger((CrossFlowExchangerSettings)settings);
         default:
           return new CocurrentExchanger();
       }
+    }
+
+    private static IHeatExchanger CrossFlowExchanger(CrossFlowExchangerSettings settings)
+    {
+      return new CocurrentExchanger();
     }
   }
 }
