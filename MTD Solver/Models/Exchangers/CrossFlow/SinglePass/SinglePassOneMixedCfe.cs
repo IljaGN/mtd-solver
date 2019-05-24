@@ -4,8 +4,8 @@
   {
     protected override double r()
     {
-      double denominator = 1 - qDp * Ln(v_D_1_p());
-      return q / Ln(1 / denominator);
+      double denominator = 1D - qDp * Ln(v_D_1_p());
+      return q / Ln(1D / denominator);
     }
   }
 }
