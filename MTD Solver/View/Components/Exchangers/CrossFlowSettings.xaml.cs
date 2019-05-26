@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using MTD_Solver.Models.Exchangers;
+using System.Collections.Generic;
 using System.Windows.Controls;
 
 namespace MTD_Solver.View.Components.Exchangers
@@ -7,8 +8,8 @@ namespace MTD_Solver.View.Components.Exchangers
   {
     public List<UiPassCount> PassCountOptions => UiPassCount.Get();
     public List<UiFluidsBehavior> FluidsBehaviorOptions => UiFluidsBehavior.Get();
-    public UiPassCount PassCountSelected { get; set; }
-    public UiFluidsBehavior FluidsBehaviorSelected { get; set; }
+    public PassCount PassCountSelected { get; set; }
+    public FluidsBehavior FluidsBehaviorSelected { get; set; }
 
     public CrossFlowSettings()
     {

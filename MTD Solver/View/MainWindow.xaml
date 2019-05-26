@@ -49,7 +49,7 @@
                     <com:MtdInput Title="t2" Value="{Binding Outlet, Mode=TwoWay}" IsTabStop="False" Grid.Column="0" Grid.Row="1"/>
                 </Grid>
                 <Grid HorizontalAlignment="Center" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2">
-                    <Button Click="Button_Click" IsEnabled="{Binding IsButtonEnabled, ElementName=mainWindow}" Padding="10 0 10 0">Calculate</Button>
+                    <Button Click="Button_Click" Padding="10 0 10 0">Calculate</Button>
                 </Grid>
             </Grid>
         </GroupBox>
@@ -58,13 +58,11 @@
                 x:Name="comboBox"
                 Margin="0 0 0 5"
                 Padding="5"
-                IsEditable="True"
-                IsReadOnly="True"
                 TabIndex="1"
                 DockPanel.Dock="Top"
-                Text="{x:Static r:Resources.SellectExchanger}"
                 ItemsSource="{Binding ComboBoxOptions}"
-                SelectedValue="{Binding ComboBoxSelected, Mode=OneWayToSource}"
+                SelectedValue="{Binding WindowData.ExchangerType, Mode=TwoWay}"
+                SelectedValuePath="Type"
                 DisplayMemberPath="Caption"
                 SelectionChanged="ComboBox_SelectionChanged">
             </ComboBox>
@@ -77,10 +75,10 @@
                     <Style>
                         <Setter Property="GroupBox.Visibility" Value="Collapsed"/>
                         <Style.Triggers>
-                            <DataTrigger Binding="{Binding SelectedValue.Type, ElementName=comboBox}" Value="SHELL_AND_TUBE">
+                            <DataTrigger Binding="{Binding SelectedValue, ElementName=comboBox}" Value="SHELL_AND_TUBE">
                                 <Setter Property="GroupBox.Visibility" Value="Visible"/>
                             </DataTrigger>
-                            <DataTrigger Binding="{Binding SelectedValue.Type, ElementName=comboBox}" Value="CROSS_FLOW">
+                            <DataTrigger Binding="{Binding SelectedValue, ElementName=comboBox}" Value="CROSS_FLOW">
                                 <Setter Property="GroupBox.Visibility" Value="Visible"/>
                             </DataTrigger>
                         </Style.Triggers>
@@ -92,7 +90,7 @@
                             <Style>
                                 <Setter Property="GroupBox.Visibility" Value="Collapsed"/>
                                 <Style.Triggers>
-                                    <DataTrigger Binding="{Binding SelectedValue.Type, ElementName=comboBox}" Value="SHELL_AND_TUBE">
+                                    <DataTrigger Binding="{Binding SelectedValue, ElementName=comboBox}" Value="SHELL_AND_TUBE">
                                         <Setter Property="GroupBox.Visibility" Value="Visible"/>
                                     </DataTrigger>
                                 </Style.Triggers>
@@ -104,14 +102,14 @@
                             <Style>
                                 <Setter Property="GroupBox.Visibility" Value="Collapsed"/>
                                 <Style.Triggers>
-                                    <DataTrigger Binding="{Binding SelectedValue.Type, ElementName=comboBox}" Value="CROSS_FLOW">
+                                    <DataTrigger Binding="{Binding SelectedValue, ElementName=comboBox}" Value="CROSS_FLOW">
                                         <Setter Property="GroupBox.Visibility" Value="Visible"/>
                                     </DataTrigger>
                                 </Style.Triggers>
                             </Style>
                         </exc:CrossFlowSettings.Style>
                     </exc:CrossFlowSettings>
-                    <Button Margin="35 10 35 0" Content="{x:Static r:Resources.BtnApply}"/>
+                    <Button Margin="35 10 35 0" Content="{x:Static r:Resources.BtnApply}" Click="Button_Click_1"/>
                 </StackPanel>
             </GroupBox>
             <Button Background="AliceBlue" IsTabStop="False">Image</Button>

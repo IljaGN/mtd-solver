@@ -1,4 +1,4 @@
 ﻿namespace MTD_Solver.Api
 {
-  interface IExchangerSettings { }
+  public interface IExchangerSettings { }
 }

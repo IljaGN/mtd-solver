@@ -2,10 +2,10 @@
 
 namespace MTD_Solver.Models.Exchangers
 {
-  class CrossFlowExchangerSettings : IExchangerSettings
+  public class CrossFlowExchangerSettings : IExchangerSettings
   {
-    public PassCount Pass { get; set; }
-    public FluidsBehavior Fluids { get; set; }
+    public PassCount Pass { get; set; } = PassCount.ONE;
+    public FluidsBehavior Fluids { get; set; } = FluidsBehavior.ONE_MIXED;
   }
 
   public enum PassCount

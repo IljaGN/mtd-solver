@@ -71,7 +71,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Compile Include="Api\NotifyPropertyChangedBase.cs" />
     <Compile Include="Models\Exchangers\Type.cs" />
+    <Compile Include="Models\WindowData.cs" />
+    <Compile Include="Utils\SerializeHelper.cs" />
     <Compile Include="View\Components\Exchangers\UiFluidsBehavior.cs" />
     <Compile Include="View\Components\Exchangers\UiPassCount.cs" />
     <Compile Include="View\UiType.cs" />

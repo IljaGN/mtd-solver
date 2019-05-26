@@ -1,11 +1,9 @@
-﻿using System.ComponentModel;
+﻿using MTD_Solver.Api;
 
 namespace MTD_Solver.Models
 {
-  public class FluidTemperature : INotifyPropertyChanged
+  public class FluidTemperature : NotifyPropertyChangedBase
   {
-    public event PropertyChangedEventHandler PropertyChanged;
-
     private double inlet;
     public double Inlet
     {
@@ -13,7 +11,7 @@ namespace MTD_Solver.Models
       set
       {
         inlet = value;
-        OnPropertyChanged(nameof(Inlet));
+        OnPropertyChanged();
       }
     }
     private double outlet;
@@ -23,14 +21,9 @@ namespace MTD_Solver.Models
       set
       {
         outlet = value;
-        OnPropertyChanged(nameof(Outlet));
+        OnPropertyChanged();
       }
     }
     public double Difference => Inlet > Outlet ? Inlet - Outlet : Outlet - Inlet;
-
-    private void OnPropertyChanged(string name)
-    {
-      PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-    }
   }
 }

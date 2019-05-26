@@ -153,9 +153,6 @@
   <data name="Result" xml:space="preserve">
     <value>Результат</value>
   </data>
-  <data name="SellectExchanger" xml:space="preserve">
-    <value>Выберите теплообменник</value>
-  </data>
   <data name="ShellAndTubeExchanger" xml:space="preserve">
     <value>Кожухотрубный</value>
   </data>

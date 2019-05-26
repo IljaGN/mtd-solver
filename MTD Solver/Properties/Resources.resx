@@ -153,9 +153,6 @@
   <data name="Result" xml:space="preserve">
     <value>Result</value>
   </data>
-  <data name="SellectExchanger" xml:space="preserve">
-    <value>Select Heat Exchanger</value>
-  </data>
   <data name="ShellAndTubeExchanger" xml:space="preserve">
     <value>Shell and Tube</value>
   </data>
