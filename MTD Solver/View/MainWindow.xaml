@@ -9,7 +9,8 @@
         xmlns:r="clr-namespace:MTD_Solver.Properties"
         Name="mainWindow"
         Height="360" Width="600" ResizeMode="CanMinimize"
-        Title="MainWindow" FontSize="15" Closed="MainWindow_Closed">
+        Title="MainWindow"
+        FontSize="15">
     <Grid Margin="10" DataContext="{Binding ElementName=mainWindow}">
         <Grid.RowDefinitions>
             <RowDefinition/>

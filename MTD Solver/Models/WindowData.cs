@@ -12,7 +12,7 @@ namespace MTD_Solver.Models
 
     private Dictionary<Type, IExchangerSettings> exchangersSettings = new Dictionary<Type, IExchangerSettings>();
 
-    public WindowData()
+    public void InitializeExchangersSettings()
     {
       exchangersSettings.Add(Type.SHELL_AND_TUBE, ShellAndTubeSettings);
       exchangersSettings.Add(Type.CROSS_FLOW, CrossFlowSettings);

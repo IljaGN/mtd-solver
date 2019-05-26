@@ -1,5 +1,4 @@
 ﻿using MTD_Solver.Api;
-using MTD_Solver.Configs;
 using MTD_Solver.Models;
 using MTD_Solver.Utils;
 using System.Collections.Generic;
@@ -17,20 +16,22 @@ namespace MTD_Solver.View
     public ExchangerIn In { get; set; } = new ExchangerIn();
     public ExchangerOut Out { get; set; } = new ExchangerOut();
     private IHeatExchanger exchanger;
-    private IExchangerSettings exchangerSettings;
 
     public MainWindow()
     {
-      var loader = new DataLoader();
-      loader.Load();
-      WindowData = loader.GetWindowData();
-      CreateAndBindExchanger();
-
+      InitializeWindowData();
       InitializeComponent();
       var assembly = Assembly.GetExecutingAssembly();
       string name = assembly.GetCustomAttribute<AssemblyTitleAttribute>().Title;
       string version = assembly.GetCustomAttribute<AssemblyFileVersionAttribute>().Version;
       Title = $"Test Version: {name} {version}";
+    }
+
+    private void InitializeWindowData()
+    {
+      WindowData = App.WindowData;
+      WindowData.InitializeExchangersSettings();
+      CreateAndBindExchanger();
     }
 
     private void Button_Click(object sender, RoutedEventArgs e)
@@ -45,20 +46,15 @@ namespace MTD_Solver.View
 
     private void CreateAndBindExchanger()
     {
-      exchanger = ExchangerFactory.Create(WindowData.ExchangerType, exchangerSettings);
+      IExchangerSettings settings = WindowData.GetCurrentExchangerSettings();
+      exchanger = ExchangerFactory.Create(WindowData.ExchangerType, settings);
       exchanger.BindSourceData(In);
       exchanger.BindResultData(Out);
     }
 
     private void Button_Click_1(object sender, RoutedEventArgs e)
     {
-      exchangerSettings = WindowData.GetCurrentExchangerSettings();
-    }
-
-    private void MainWindow_Closed(object sender, System.EventArgs e)
-    {
-      var saver = new DataSaver();
-      saver.Save(WindowData, new AppConfig());
+      CreateAndBindExchanger();
     }
   }
 }
