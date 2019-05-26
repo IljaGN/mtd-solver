@@ -8,7 +8,7 @@
         xmlns:exc="clr-namespace:MTD_Solver.View.Components.Exchangers"
         xmlns:r="clr-namespace:MTD_Solver.Properties"
         Name="mainWindow"
-        Height="350" Width="570" ResizeMode="CanMinimize"
+        Height="360" Width="600" ResizeMode="CanMinimize"
         Title="MainWindow" FontSize="15">
     <Grid Margin="10" DataContext="{Binding ElementName=mainWindow}">
         <Grid.RowDefinitions>
@@ -17,7 +17,7 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1.7*"/>
+            <ColumnDefinition Width="1.5*"/>
             <ColumnDefinition Width="10"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>

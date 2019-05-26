@@ -19,7 +19,7 @@
 
     protected override double DefineCorrectionFactor(ExchangerOut data)
     {
-      return r0 / r();
+      return r() / r0;
     }
 
     abstract protected double r();

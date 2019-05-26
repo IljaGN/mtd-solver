@@ -126,17 +126,29 @@
   <data name="AreaOutput" xml:space="preserve">
     <value>Output</value>
   </data>
+  <data name="BothMixed" xml:space="preserve">
+    <value>Both Mixed</value>
+  </data>
   <data name="BtnApply" xml:space="preserve">
     <value>Apply</value>
   </data>
   <data name="CocurrentExchanger" xml:space="preserve">
     <value>Cocurrent</value>
   </data>
+  <data name="ComboBoxFluidTitle" xml:space="preserve">
+    <value>Fluids:</value>
+  </data>
+  <data name="ComboBoxPassTitle" xml:space="preserve">
+    <value>Passes:</value>
+  </data>
   <data name="CountercurrentExchanger" xml:space="preserve">
     <value>Countercurrent</value>
   </data>
   <data name="CrossFlowExchanger" xml:space="preserve">
     <value>Crossflow</value>
+  </data>
+  <data name="OneMixed" xml:space="preserve">
+    <value>One Mixed</value>
   </data>
   <data name="Result" xml:space="preserve">
     <value>Result</value>
@@ -146,5 +158,17 @@
   </data>
   <data name="ShellAndTubeExchanger" xml:space="preserve">
     <value>Shell and Tube</value>
+  </data>
+  <data name="ShellsCountTitle" xml:space="preserve">
+    <value>Number of Shells:</value>
+  </data>
+  <data name="SinglePass" xml:space="preserve">
+    <value>Single</value>
+  </data>
+  <data name="TwoPass" xml:space="preserve">
+    <value>Two</value>
+  </data>
+  <data name="Unmixed" xml:space="preserve">
+    <value>Unmixed</value>
   </data>
 </root>

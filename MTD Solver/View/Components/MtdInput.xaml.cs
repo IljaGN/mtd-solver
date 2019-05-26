@@ -23,7 +23,7 @@ namespace MTD_Solver.View.Components
       set { SetValue(ValueProperty, value); }
     }
     public static readonly DependencyProperty ValueProperty = DependencyProperty.Register(
-      "Value",
+      nameof(Value),
       typeof(double),
       typeof(MtdInput),
       new FrameworkPropertyMetadata(0D) //new PropertyChangedCallback(OnValueChanged)
@@ -35,7 +35,7 @@ namespace MTD_Solver.View.Components
       set { SetValue(TitleProperty, value); }
     }
     public static readonly DependencyProperty TitleProperty = DependencyProperty.Register(
-      "Title",
+      nameof(Title),
       typeof(string),
       typeof(MtdInput),
       new PropertyMetadata("")

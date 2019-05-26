@@ -11,8 +11,8 @@ namespace MTD_Solver.View
 {
   public partial class MainWindow : Window, INotifyPropertyChanged
   {
-    public List<EcxhangerType> ComboBoxOptions => Exchanger.GetTypes();
-    public EcxhangerType ComboBoxSelected { get; set; }
+    public List<UiType> ComboBoxOptions => UiType.Get();
+    public UiType ComboBoxSelected { get; set; }
 
     public bool IsButtonEnabled => exchanger != null;
 

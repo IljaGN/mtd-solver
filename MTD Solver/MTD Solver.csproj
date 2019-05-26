@@ -71,7 +71,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="Api\EcxhangerType.cs" />
+    <Compile Include="Models\Exchangers\Type.cs" />
+    <Compile Include="View\Components\Exchangers\UiFluidsBehavior.cs" />
+    <Compile Include="View\Components\Exchangers\UiPassCount.cs" />
+    <Compile Include="View\UiType.cs" />
     <Compile Include="Api\IExchangerSettings.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
@@ -94,7 +97,7 @@
     <Compile Include="Models\Exchangers\ShellAndTube\ShellAndTubeExchanger.cs" />
     <Compile Include="Models\FluidTemperature.cs" />
     <Compile Include="Utils\ExchangerFactory.cs" />
-    <Compile Include="Utils\Exchanger.cs" />
+    <Compile Include="Utils\UiEnum.cs" />
     <Compile Include="View\Components\Exchangers\CrossFlowSettings.xaml.cs">
       <DependentUpon>CrossFlowSettings.xaml</DependentUpon>
     </Compile>

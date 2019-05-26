@@ -126,17 +126,29 @@
   <data name="AreaOutput" xml:space="preserve">
     <value>Вывод</value>
   </data>
+  <data name="BothMixed" xml:space="preserve">
+    <value>Обе перемешиваются</value>
+  </data>
   <data name="BtnApply" xml:space="preserve">
     <value>Применить</value>
   </data>
   <data name="CocurrentExchanger" xml:space="preserve">
     <value>Прямоточный</value>
   </data>
+  <data name="ComboBoxFluidTitle" xml:space="preserve">
+    <value>Жидкости:</value>
+  </data>
+  <data name="ComboBoxPassTitle" xml:space="preserve">
+    <value>Ходов:</value>
+  </data>
   <data name="CountercurrentExchanger" xml:space="preserve">
     <value>Противоточный</value>
   </data>
   <data name="CrossFlowExchanger" xml:space="preserve">
     <value>Перекрестноточный</value>
+  </data>
+  <data name="OneMixed" xml:space="preserve">
+    <value>Одна перемешивается</value>
   </data>
   <data name="Result" xml:space="preserve">
     <value>Результат</value>
@@ -146,5 +158,17 @@
   </data>
   <data name="ShellAndTubeExchanger" xml:space="preserve">
     <value>Кожухотрубный</value>
+  </data>
+  <data name="ShellsCountTitle" xml:space="preserve">
+    <value>Число кожухов:</value>
+  </data>
+  <data name="SinglePass" xml:space="preserve">
+    <value>Один</value>
+  </data>
+  <data name="TwoPass" xml:space="preserve">
+    <value>Два</value>
+  </data>
+  <data name="Unmixed" xml:space="preserve">
+    <value>Не перемешиваются</value>
   </data>
 </root>

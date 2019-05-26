@@ -4,20 +4,29 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              mc:Ignorable="d"
+             xmlns:r="clr-namespace:MTD_Solver.Properties"
              Name="Settings">
-    <StackPanel DataContext="{Binding ElementName=Settings}" Orientation="Horizontal">
-        <GroupBox Header="Passes">
-            <StackPanel>
-                <RadioButton Content="Single"/>
-                <RadioButton Content="Two"/>
-            </StackPanel>
-        </GroupBox>
-        <GroupBox Header="Fluids">
-            <StackPanel>
-                <RadioButton Content="One Mixed"/>
-                <RadioButton Content="Both Mixed"/>
-                <RadioButton Content="Unmixed"/>
-            </StackPanel>
-        </GroupBox>
-    </StackPanel>
+    <Grid DataContext="{Binding ElementName=Settings}">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="1.9*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="{x:Static r:Resources.ComboBoxPassTitle}" Grid.Row="0" Grid.Column="0"/>
+        <ComboBox Grid.Row="1" Grid.Column="0"
+            ItemsSource="{Binding PassCountOptions}"
+            SelectedValue="{Binding PassCountSelected, Mode=OneWayToSource}"
+            DisplayMemberPath="Caption">
+        </ComboBox>
+        <TextBlock Text="{x:Static r:Resources.ComboBoxFluidTitle}" Grid.Row="0" Grid.Column="2"/>
+        <ComboBox Grid.Row="1" Grid.Column="2"
+            ItemsSource="{Binding FluidsBehaviorOptions}"
+            SelectedValue="{Binding FluidsBehaviorSelected, Mode=OneWayToSource}"
+            DisplayMemberPath="Caption">
+        </ComboBox>
+    </Grid>
 </UserControl>

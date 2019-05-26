@@ -1,4 +1,5 @@
 ﻿using MTD_Solver.Api;
+using MTD_Solver.Models;
 using MTD_Solver.Models.Exchangers;
 
 namespace MTD_Solver.Utils
@@ -14,7 +15,9 @@ namespace MTD_Solver.Utils
         case Type.COUNTERCURRENT:
           return new CountercurrentExchanger();
         case Type.SHELL_AND_TUBE:
-          return new ShellAndTubeExchanger((ShellAndTubeExchangerSettings)settings);
+          var set = new ShellAndTubeExchangerSettings();
+          set.ShellCount = 3;
+          return new ShellAndTubeExchanger(set); // (ShellAndTubeExchangerSettings)settings
         case Type.CROSS_FLOW:
           return CrossFlowExchanger((CrossFlowExchangerSettings)settings);
         default:
@@ -24,7 +27,7 @@ namespace MTD_Solver.Utils
 
     private static IHeatExchanger CrossFlowExchanger(CrossFlowExchangerSettings settings)
     {
-      return new CocurrentExchanger();
+      return new SinglePassOneMixedCfe();
     }
   }
 }
