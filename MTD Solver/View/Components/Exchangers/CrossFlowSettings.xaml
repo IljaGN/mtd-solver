@@ -19,14 +19,14 @@
         <TextBlock Text="{x:Static r:Resources.ComboBoxPassTitle}" Grid.Row="0" Grid.Column="0"/>
         <ComboBox Grid.Row="1" Grid.Column="0"
             ItemsSource="{Binding PassCountOptions}"
-            SelectedValue="{Binding PassCountSelected, Mode=OneWayToSource}"
+            SelectedValue="{Binding PassCountSelected, Mode=TwoWay}"
             SelectedValuePath="Type"
             DisplayMemberPath="Caption">
         </ComboBox>
         <TextBlock Text="{x:Static r:Resources.ComboBoxFluidTitle}" Grid.Row="0" Grid.Column="2"/>
         <ComboBox Grid.Row="1" Grid.Column="2"
             ItemsSource="{Binding FluidsBehaviorOptions}"
-            SelectedValue="{Binding FluidsBehaviorSelected, Mode=OneWayToSource}"
+            SelectedValue="{Binding FluidsBehaviorSelected, Mode=TwoWay}"
             SelectedValuePath="Type"
             DisplayMemberPath="Caption">
         </ComboBox>

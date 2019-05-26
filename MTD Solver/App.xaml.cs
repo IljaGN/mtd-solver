@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 
 namespace MTD_Solver
 {
-    public partial class App : Application
-    {
-    }
+  public partial class App : Application
+  {
+    public static readonly string PROPERTY_FILE_NAME = "Property.xml";
+  }
 }

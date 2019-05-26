@@ -1,6 +1,6 @@
 ﻿using MTD_Solver.Api;
+using MTD_Solver.Configs;
 using MTD_Solver.Models;
-using MTD_Solver.Models.Exchangers;
 using MTD_Solver.Utils;
 using System.Collections.Generic;
 using System.Reflection;
@@ -14,17 +14,17 @@ namespace MTD_Solver.View
     public List<UiType> ComboBoxOptions => UiType.Get();
     public WindowData WindowData { get; set; }
 
-    public ExchangerIn In { get; set; }
-    public ExchangerOut Out { get; set; }
+    public ExchangerIn In { get; set; } = new ExchangerIn();
+    public ExchangerOut Out { get; set; } = new ExchangerOut();
     private IHeatExchanger exchanger;
     private IExchangerSettings exchangerSettings;
 
     public MainWindow()
     {
-      In = new ExchangerIn();
-      Out = new ExchangerOut();
-      WindowData = new WindowData();
-      CreateExchanger();
+      var loader = new DataLoader();
+      loader.Load();
+      WindowData = loader.GetWindowData();
+      CreateAndBindExchanger();
 
       InitializeComponent();
       var assembly = Assembly.GetExecutingAssembly();
@@ -40,10 +40,10 @@ namespace MTD_Solver.View
 
     private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-      CreateExchanger();
+      CreateAndBindExchanger();
     }
 
-    private void CreateExchanger()
+    private void CreateAndBindExchanger()
     {
       exchanger = ExchangerFactory.Create(WindowData.ExchangerType, exchangerSettings);
       exchanger.BindSourceData(In);
@@ -53,6 +53,12 @@ namespace MTD_Solver.View
     private void Button_Click_1(object sender, RoutedEventArgs e)
     {
       exchangerSettings = WindowData.GetCurrentExchangerSettings();
+    }
+
+    private void MainWindow_Closed(object sender, System.EventArgs e)
+    {
+      var saver = new DataSaver();
+      saver.Save(WindowData, new AppConfig());
     }
   }
 }

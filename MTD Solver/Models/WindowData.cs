@@ -14,9 +14,6 @@ namespace MTD_Solver.Models
 
     public WindowData()
     {
-      ExchangerType = Type.COCURRENT;
-      ShellAndTubeSettings = new ShellAndTubeExchangerSettings();
-      CrossFlowSettings = new CrossFlowExchangerSettings();
       exchangersSettings.Add(Type.SHELL_AND_TUBE, ShellAndTubeSettings);
       exchangersSettings.Add(Type.CROSS_FLOW, CrossFlowSettings);
     }

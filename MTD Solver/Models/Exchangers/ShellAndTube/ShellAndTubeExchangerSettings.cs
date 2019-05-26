@@ -4,6 +4,6 @@ namespace MTD_Solver.Models.Exchangers
 {
   public class ShellAndTubeExchangerSettings : IExchangerSettings
   {
-    public int ShellCount { get; set; } = 1;
+    public int ShellCount { get; set; }
   }
 }
