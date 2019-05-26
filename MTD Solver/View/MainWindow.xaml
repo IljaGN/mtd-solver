@@ -84,8 +84,8 @@
                         </Style.Triggers>
                     </Style>
                 </GroupBox.Style>
-                <StackPanel>
-                    <exc:ShellAndTubeSettings>
+                <StackPanel DataContext="{Binding WindowData}">
+                    <exc:ShellAndTubeSettings ShellsCount="{Binding ShellAndTubeSettings.ShellCount, Mode=TwoWay}">
                         <exc:ShellAndTubeSettings.Style>
                             <Style>
                                 <Setter Property="GroupBox.Visibility" Value="Collapsed"/>
@@ -97,7 +97,10 @@
                             </Style>
                         </exc:ShellAndTubeSettings.Style>
                     </exc:ShellAndTubeSettings>
-                    <exc:CrossFlowSettings>
+                    <exc:CrossFlowSettings
+                        DataContext="{Binding CrossFlowSettings}"
+                        PassCountSelected="{Binding Pass, Mode=TwoWay}"
+                        FluidsBehaviorSelected="{Binding Fluids, Mode=TwoWay}">
                         <exc:CrossFlowSettings.Style>
                             <Style>
                                 <Setter Property="GroupBox.Visibility" Value="Collapsed"/>
