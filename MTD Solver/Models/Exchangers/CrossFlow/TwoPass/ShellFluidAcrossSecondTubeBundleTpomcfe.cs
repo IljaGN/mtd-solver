@@ -4,8 +4,9 @@
   {
     protected override double LnValue()
     {
-      double radical = Sqrt(v_D_1_p(q));
-      return (radical - qDp) / (1 - qDp);
+      return p == q
+        ? (2D - q) / (2D * (1D - q))
+        : (Sqrt(v_D_1_p(q)) - qDp) / (1 - qDp);
     }
   }
 }

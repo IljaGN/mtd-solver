@@ -5,7 +5,6 @@
     protected double q => innerExchangerResult.P;
     protected double p => innerExchangerResult.R * innerExchangerResult.P;
     protected double qDp => 1D / innerExchangerResult.R;
-    protected double r0 => (p - q) / Ln(v_D_1_p(q));
 
     protected double v_D_1_p()
     {
@@ -19,7 +18,14 @@
 
     protected override double DefineCorrectionFactor(ExchangerOut data)
     {
-      return r() / r0;
+      return r() / r0();
+    }
+
+    private double r0()
+    {
+      return p == q
+        ? 1D - q
+        : (p - q) / Ln(v_D_1_p(q));
     }
 
     abstract protected double r();

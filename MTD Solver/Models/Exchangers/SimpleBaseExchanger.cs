@@ -24,11 +24,16 @@ namespace MTD_Solver.Models.Exchangers
 
     public void Execute()
     {
+      result.Update(P, R, CORRECTION_FACTOR, DefineMtd());
+    }
+
+    private double DefineMtd()
+    {
       double greatDifference = GetGreatTemperatureDifference();
       double smallDifference = GetSmallTemperatureDifference();
-      double logarithmicDifference = Math.Log(greatDifference / smallDifference);
-      double mtd = (greatDifference - smallDifference) / logarithmicDifference;
-      result.Update(P, R, CORRECTION_FACTOR, mtd);
+      return greatDifference == smallDifference
+        ? greatDifference
+        : (greatDifference - smallDifference) / Math.Log(greatDifference / smallDifference);
     }
 
     abstract protected double GetGreatTemperatureDifference();
