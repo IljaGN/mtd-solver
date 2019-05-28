@@ -11,3 +11,6 @@ obj/
 # Auto generated files
 *.Designer.cs
 *.sln
+
+# Class Diagram
+*.cd
