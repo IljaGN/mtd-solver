@@ -6,10 +6,10 @@
              mc:Ignorable="d"
              Name="Input">
     <Grid>
-        <StackPanel Orientation="Horizontal" DataContext="{Binding ElementName=Input}">
-            <Label Content="{Binding Title}"/>
+        <StackPanel Orientation="Horizontal" DataContext="{Binding ElementName=Input}" MaxHeight="35">
+            <Label MinWidth="25" Content="{Binding Title}"/>
             <TextBox Width="80" Text="{Binding Value, Mode=TwoWay}"/>
-            <Label Content="℃"/>
+            <Label Width="25" Content="℃"/>
         </StackPanel>
     </Grid>
 </UserControl>
