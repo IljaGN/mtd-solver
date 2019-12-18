@@ -29,6 +29,18 @@ namespace MTD_Solver.View.Components
       new PropertyMetadata("")
       );
 
+    public string Unit
+    {
+      get { return (string)GetValue(UnitProperty); }
+      set { SetValue(UnitProperty, value); }
+    }
+    public static readonly DependencyProperty UnitProperty = DependencyProperty.Register(
+      nameof(Unit),
+      typeof(string),
+      typeof(MtdInput),
+      new PropertyMetadata("")
+      );
+
     public MtdInput()
     {
       InitializeComponent();
