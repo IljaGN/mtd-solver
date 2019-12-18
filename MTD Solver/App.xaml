@@ -7,6 +7,10 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="View/Images/CocurrentExchanger.xaml"/>
+                <ResourceDictionary Source="View/Images/CountercurrentExchanger.xaml"/>
+                <ResourceDictionary Source="View/Images/ShellAndTubeExchanger.xaml"/>
+                <ResourceDictionary Source="View/Images/CrossFlowExchanger.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
