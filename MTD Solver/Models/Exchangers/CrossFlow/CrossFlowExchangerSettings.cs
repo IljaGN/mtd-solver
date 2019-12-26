@@ -6,6 +6,7 @@ namespace MTD_Solver.Models.Exchangers
   {
     public PassCount Pass { get; set; }
     public FluidsBehavior Fluids { get; set; }
+    public ShellFluidAcrossTubes FluidAcrossTubes { get; set; }
   }
 
   public enum PassCount
@@ -16,8 +17,14 @@ namespace MTD_Solver.Models.Exchangers
 
   public enum FluidsBehavior
   {
-    UNMIXED,
+    BOTH_UNMIXED,
     ONE_MIXED,
     BOTH_MIXED
+  }
+
+  public enum ShellFluidAcrossTubes
+  {
+    FIRST,
+    SECOND
   }
 }

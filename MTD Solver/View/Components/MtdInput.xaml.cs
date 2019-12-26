@@ -128,7 +128,7 @@ namespace MTD_Solver.View.Components
 
     private bool IsPossibleInsertSeparator(char chr, TextBox textBox)
     {
-      int previousIndexChr  = textBox.CaretIndex - 1;
+      int previousIndexChr = textBox.CaretIndex - 1;
       int allowableLength = 1 + Convert.ToInt32(textBox.Text.Contains(NEGATIVE_SIGN));
       return char.IsDigit(chr) && !textBox.Text.Contains(DECIMAL_SEPARATOR)
         && textBox.Text.Length == allowableLength && previousIndexChr > -1
@@ -144,7 +144,7 @@ namespace MTD_Solver.View.Components
 
     private bool IsPrintChar(char chr, TextBox textBox)
     {
-      return !IsPossibleToBanInputMinDigit(chr, textBox) && IsValidCharForPrint(chr, textBox);
+      return IsValidCharForPrint(chr, textBox) && !IsPossibleToBanInputMinDigit(chr, textBox);
     }
 
     private void PlayWarningSound(bool play)

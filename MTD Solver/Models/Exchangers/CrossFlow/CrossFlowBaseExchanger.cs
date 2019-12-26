@@ -21,7 +21,7 @@
       return r() / r0();
     }
 
-    private double r0()
+    protected double r0()
     {
       return p == q
         ? 1D - q

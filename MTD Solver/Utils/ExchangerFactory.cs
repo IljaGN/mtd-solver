@@ -1,5 +1,4 @@
 ﻿using MTD_Solver.Api;
-using MTD_Solver.Models;
 using MTD_Solver.Models.Exchangers;
 
 namespace MTD_Solver.Utils
@@ -25,16 +24,43 @@ namespace MTD_Solver.Utils
 
     private static IHeatExchanger CrossFlowExchanger(CrossFlowExchangerSettings settings)
     {
-      if (settings.Pass == PassCount.ONE && settings.Fluids == FluidsBehavior.ONE_MIXED)
+      switch (settings.Pass)
       {
-        return new SinglePassOneMixedCfe();
+        case PassCount.ONE:
+          return SinglePassCrossFlowExchanger(settings);
+        case PassCount.TWO:
+          return TwoPassCrossFlowExchanger(settings);
+        default:
+          return new SinglePassOneMixedCfe();
       }
-      if (settings.Pass == PassCount.TWO && settings.Fluids == FluidsBehavior.ONE_MIXED)
-      {
-        return new ShellFluidAcrossSecondTubeBundleTpomcfe();
-      }
+    }
 
-      return new ShellFluidAcrossFirstTubeBundleTpomcfe();
+    private static IHeatExchanger SinglePassCrossFlowExchanger(CrossFlowExchangerSettings settings)
+    {
+      switch (settings.Fluids)
+      {
+        case FluidsBehavior.BOTH_UNMIXED:
+          return new SinglePassBothUnmixedCfe();
+        case FluidsBehavior.ONE_MIXED:
+          return new SinglePassOneMixedCfe();
+        case FluidsBehavior.BOTH_MIXED:
+          return new SinglePassBothMixedCfe();
+        default:
+          return new SinglePassOneMixedCfe();
+      }
+    }
+
+    private static IHeatExchanger TwoPassCrossFlowExchanger(CrossFlowExchangerSettings settings)
+    {
+      switch (settings.FluidAcrossTubes)
+      {
+        case ShellFluidAcrossTubes.FIRST:
+          return new ShellFluidAcrossFirstTubeBundleTpomcfe();
+        case ShellFluidAcrossTubes.SECOND:
+          return new ShellFluidAcrossSecondTubeBundleTpomcfe();
+        default:
+          return new ShellFluidAcrossFirstTubeBundleTpomcfe();
+      }
     }
   }
 }

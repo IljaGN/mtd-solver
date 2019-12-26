@@ -12,7 +12,7 @@ namespace MTD_Solver.View.Components.Exchangers
     {
       return new List<UiFluidsBehavior>
       {
-        new UiFluidsBehavior(FluidsBehavior.UNMIXED, Properties.Resources.Unmixed),
+        new UiFluidsBehavior(FluidsBehavior.BOTH_UNMIXED, Properties.Resources.Unmixed),
         new UiFluidsBehavior(FluidsBehavior.ONE_MIXED, Properties.Resources.OneMixed),
         new UiFluidsBehavior(FluidsBehavior.BOTH_MIXED, Properties.Resources.BothMixed)
       };

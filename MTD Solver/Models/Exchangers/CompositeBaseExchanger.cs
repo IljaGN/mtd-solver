@@ -53,6 +53,21 @@ namespace MTD_Solver.Models.Exchangers
       return Math.Pow(_base, power);
     }
 
+    protected double Exp(double power)
+    {
+      return Math.Exp(power);
+    }
+
+    protected double Abs(double value)
+    {
+      return Math.Abs(value);
+    }
+
+    protected int Factorial(int value)
+    {
+      throw new NotImplementedException();
+    }
+
     abstract protected double DefineCorrectionFactor(ExchangerOut data);
   }
 }

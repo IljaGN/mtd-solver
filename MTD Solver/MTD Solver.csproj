@@ -89,6 +89,8 @@
     </Page>
     <Compile Include="Api\NotifyPropertyChangedBase.cs" />
     <Compile Include="Configs\AppConfig.cs" />
+    <Compile Include="Models\Exchangers\CrossFlow\SinglePass\SinglePassBothMixedCfe.cs" />
+    <Compile Include="Models\Exchangers\CrossFlow\SinglePass\SinglePassBothUnmixedCfe.cs" />
     <Compile Include="Models\Exchangers\Type.cs" />
     <Compile Include="Models\WindowData.cs" />
     <Compile Include="Utils\SaveAndLoad\Property.cs" />

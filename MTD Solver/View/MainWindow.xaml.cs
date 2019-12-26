@@ -34,6 +34,7 @@ namespace MTD_Solver.View
       CreateAndBindExchanger();
     }
 
+    //TODO: this btn doesn't exist
     private void Button_Click(object sender, RoutedEventArgs e)
     {
       exchanger.Execute();
@@ -52,7 +53,7 @@ namespace MTD_Solver.View
       exchanger.BindResultData(Out);
     }
 
-    private void Button_Click_1(object sender, RoutedEventArgs e)
+    private void BtnApply_Click(object sender, RoutedEventArgs e)
     {
       CreateAndBindExchanger();
     }
