@@ -93,6 +93,7 @@
     <Compile Include="Models\Exchangers\CrossFlow\SinglePass\SinglePassBothUnmixedCfe.cs" />
     <Compile Include="Models\Exchangers\Type.cs" />
     <Compile Include="Models\WindowData.cs" />
+    <Compile Include="Utils\MathFactorialCalculator.cs" />
     <Compile Include="Utils\SaveAndLoad\Property.cs" />
     <Compile Include="Utils\SaveAndLoad\DataLoader.cs" />
     <Compile Include="Utils\SaveAndLoad\DataSaver.cs" />

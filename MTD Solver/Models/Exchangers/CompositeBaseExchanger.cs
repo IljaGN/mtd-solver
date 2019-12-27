@@ -1,16 +1,21 @@
 ﻿using System;
 using MTD_Solver.Api;
+using MTD_Solver.Utils;
 
 namespace MTD_Solver.Models.Exchangers
 {
   abstract class CompositeBaseExchanger : IHeatExchanger
   {
+    private readonly MathFactorialCalculator mathFactorial;
+
     private IHeatExchanger exchanger;
     protected ExchangerOut innerExchangerResult;
     protected ExchangerOut result;
 
     public CompositeBaseExchanger()
     {
+      mathFactorial = new MathFactorialCalculator();
+
       exchanger = new CountercurrentExchanger();
       innerExchangerResult = new ExchangerOut();
       exchanger.BindResultData(innerExchangerResult);
@@ -65,7 +70,7 @@ namespace MTD_Solver.Models.Exchangers
 
     protected int Factorial(int value)
     {
-      throw new NotImplementedException();
+      return mathFactorial.Calculate(value);
     }
 
     abstract protected double DefineCorrectionFactor(ExchangerOut data);
