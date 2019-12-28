@@ -34,15 +34,16 @@ namespace MTD_Solver.View
       CreateAndBindExchanger();
     }
 
-    //TODO: this btn doesn't exist
-    private void Button_Click(object sender, RoutedEventArgs e)
-    {
-      exchanger.Execute();
-    }
-
     private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
       CreateAndBindExchanger();
+      exchanger.Execute();
+    }
+
+    private void BtnApply_Click(object sender, RoutedEventArgs e)
+    {
+      CreateAndBindExchanger();
+      exchanger.Execute();
     }
 
     private void CreateAndBindExchanger()
@@ -53,9 +54,9 @@ namespace MTD_Solver.View
       exchanger.BindResultData(Out);
     }
 
-    private void BtnApply_Click(object sender, RoutedEventArgs e)
+    private void MtdInput_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
     {
-      CreateAndBindExchanger();
+      exchanger.Execute();
     }
   }
 }
