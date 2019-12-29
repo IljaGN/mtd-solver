@@ -9,6 +9,7 @@ namespace MTD_Solver.View.Components.Exchangers
   {
     public List<UiPassCount> PassCountOptions => UiPassCount.Get();
     public List<UiFluidsBehavior> FluidsBehaviorOptions => UiFluidsBehavior.Get();
+    public List<UiShellFluidAcrossTubes> ShellFluidAcrossTubesOptions => UiShellFluidAcrossTubes.Get();
 
     public PassCount PassCountSelected
     {
@@ -19,7 +20,7 @@ namespace MTD_Solver.View.Components.Exchangers
       nameof(PassCountSelected),
       typeof(PassCount),
       typeof(CrossFlowSettings),
-      new PropertyMetadata(PassCount.ONE)
+      new PropertyMetadata(PassCount.ONE, new PropertyChangedCallback(OnPassCountSelectedChanged))
       );
 
     public FluidsBehavior FluidsBehaviorSelected
@@ -34,9 +35,35 @@ namespace MTD_Solver.View.Components.Exchangers
       new PropertyMetadata(FluidsBehavior.ONE_MIXED)
       );
 
+    public ShellFluidAcrossTubes ShellFluidAcrossTubesSelected
+    {
+      get { return (ShellFluidAcrossTubes)GetValue(ShellFluidAcrossTubesSelectedProperty); }
+      set { SetValue(ShellFluidAcrossTubesSelectedProperty, value); }
+    }
+    public static readonly DependencyProperty ShellFluidAcrossTubesSelectedProperty = DependencyProperty.Register(
+      nameof(ShellFluidAcrossTubesSelected),
+      typeof(ShellFluidAcrossTubes),
+      typeof(CrossFlowSettings),
+      new PropertyMetadata(ShellFluidAcrossTubes.FIRST)
+      );
+
     public CrossFlowSettings()
     {
       InitializeComponent();
+    }
+
+    private static void OnPassCountSelectedChanged(DependencyObject obj, DependencyPropertyChangedEventArgs args)
+    {
+      CrossFlowSettings control = obj as CrossFlowSettings;
+      control.OnPassCountSelectedChanged();
+    }
+
+    protected virtual void OnPassCountSelectedChanged()
+    {
+      if (PassCountSelected == PassCount.TWO)
+      {
+        FluidsBehaviorSelected = FluidsBehavior.ONE_MIXED;
+      }
     }
   }
 }

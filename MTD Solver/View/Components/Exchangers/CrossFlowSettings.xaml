@@ -10,6 +10,30 @@
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
+            <RowDefinition>
+                <RowDefinition.Style>
+                    <Style>
+                        <Setter Property="RowDefinition.Height" Value="0"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding SelectedValue, ElementName=comboBoxPassCount}" Value="TWO">
+                                <Setter Property="RowDefinition.Height" Value="5"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </RowDefinition.Style>
+            </RowDefinition>
+            <RowDefinition>
+                <RowDefinition.Style>
+                    <Style>
+                        <Setter Property="RowDefinition.Height" Value="0"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding SelectedValue, ElementName=comboBoxPassCount}" Value="TWO">
+                                <Setter Property="RowDefinition.Height" Value="Auto"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </RowDefinition.Style>
+            </RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -17,7 +41,7 @@
             <ColumnDefinition Width="1.9*"/>
         </Grid.ColumnDefinitions>
         <TextBlock Text="{x:Static r:Resources.ComboBoxPassTitle}" Grid.Row="0" Grid.Column="0"/>
-        <ComboBox Grid.Row="1" Grid.Column="0"
+        <ComboBox x:Name="comboBoxPassCount" Grid.Row="1" Grid.Column="0"
             ItemsSource="{Binding PassCountOptions}"
             SelectedValue="{Binding PassCountSelected, Mode=TwoWay}"
             SelectedValuePath="Type"
@@ -29,6 +53,23 @@
             SelectedValue="{Binding FluidsBehaviorSelected, Mode=TwoWay}"
             SelectedValuePath="Type"
             DisplayMemberPath="Caption">
+            <ComboBox.Style>
+                <Style>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding SelectedValue, ElementName=comboBoxPassCount}" Value="TWO">
+                            <Setter Property="ComboBox.IsEnabled" Value="False"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </ComboBox.Style>
         </ComboBox>
+        <TextBlock Text="{x:Static r:Resources.ComboBoxFluidAcrossTubesTitle}" TextWrapping="Wrap" Grid.Row="3" Grid.ColumnSpan="3">
+            <ComboBox TextBlock.BaselineOffset="18"
+                ItemsSource="{Binding ShellFluidAcrossTubesOptions}"
+                SelectedValue="{Binding ShellFluidAcrossTubesSelected, Mode=TwoWay}"
+                SelectedValuePath="Type"
+                DisplayMemberPath="Caption">
+            </ComboBox>
+        </TextBlock>
     </Grid>
 </UserControl>

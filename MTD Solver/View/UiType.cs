@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using MTD_Solver.Models.Exchangers;
+using MTD_Solver.Properties;
 using MTD_Solver.Utils;
 
 namespace MTD_Solver.View
@@ -12,10 +13,10 @@ namespace MTD_Solver.View
     {
       return new List<UiType>
       {
-        new UiType(Type.COCURRENT, Properties.Resources.CocurrentExchanger),
-        new UiType(Type.COUNTERCURRENT, Properties.Resources.CountercurrentExchanger),
-        new UiType(Type.SHELL_AND_TUBE, Properties.Resources.ShellAndTubeExchanger),
-        new UiType(Type.CROSS_FLOW, Properties.Resources.CrossFlowExchanger)
+        new UiType(Type.COCURRENT, Resources.CocurrentExchanger),
+        new UiType(Type.COUNTERCURRENT, Resources.CountercurrentExchanger),
+        new UiType(Type.SHELL_AND_TUBE, Resources.ShellAndTubeExchanger),
+        new UiType(Type.CROSS_FLOW, Resources.CrossFlowExchanger)
       };
     }
   }

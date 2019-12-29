@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using MTD_Solver.Models.Exchangers;
+using MTD_Solver.Properties;
 using MTD_Solver.Utils;
 
 namespace MTD_Solver.View.Components.Exchangers
@@ -12,9 +13,9 @@ namespace MTD_Solver.View.Components.Exchangers
     {
       return new List<UiFluidsBehavior>
       {
-        new UiFluidsBehavior(FluidsBehavior.BOTH_UNMIXED, Properties.Resources.Unmixed),
-        new UiFluidsBehavior(FluidsBehavior.ONE_MIXED, Properties.Resources.OneMixed),
-        new UiFluidsBehavior(FluidsBehavior.BOTH_MIXED, Properties.Resources.BothMixed)
+        new UiFluidsBehavior(FluidsBehavior.BOTH_UNMIXED, Resources.Unmixed),
+        new UiFluidsBehavior(FluidsBehavior.ONE_MIXED, Resources.OneMixed),
+        new UiFluidsBehavior(FluidsBehavior.BOTH_MIXED, Resources.BothMixed)
       };
     }
   }

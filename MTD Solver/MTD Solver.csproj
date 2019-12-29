@@ -100,6 +100,7 @@
     <Compile Include="Utils\SaveAndLoad\SerializeHelper.cs" />
     <Compile Include="View\Components\Exchangers\UiFluidsBehavior.cs" />
     <Compile Include="View\Components\Exchangers\UiPassCount.cs" />
+    <Compile Include="View\Components\Exchangers\UiShellFluidAcrossTubes.cs" />
     <Compile Include="View\UiType.cs" />
     <Compile Include="Api\IExchangerSettings.cs" />
     <Compile Include="App.xaml.cs">

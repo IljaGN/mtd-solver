@@ -135,6 +135,9 @@
   <data name="CocurrentExchanger" xml:space="preserve">
     <value>Cocurrent</value>
   </data>
+  <data name="ComboBoxFluidAcrossTubesTitle" xml:space="preserve">
+    <value>Shell fluid flowing across tube bundle:  </value>
+  </data>
   <data name="ComboBoxFluidTitle" xml:space="preserve">
     <value>Fluids:</value>
   </data>
@@ -147,11 +150,17 @@
   <data name="CrossFlowExchanger" xml:space="preserve">
     <value>Crossflow</value>
   </data>
+  <data name="FirstTubeBundle" xml:space="preserve">
+    <value>First</value>
+  </data>
   <data name="OneMixed" xml:space="preserve">
     <value>One Mixed</value>
   </data>
   <data name="Result" xml:space="preserve">
     <value>Result</value>
+  </data>
+  <data name="SecondTubeBundle" xml:space="preserve">
+    <value>Second</value>
   </data>
   <data name="ShellAndTubeExchanger" xml:space="preserve">
     <value>Shell and Tube</value>
@@ -166,6 +175,6 @@
     <value>Two</value>
   </data>
   <data name="Unmixed" xml:space="preserve">
-    <value>Unmixed</value>
+    <value>Both Unmixed</value>
   </data>
 </root>

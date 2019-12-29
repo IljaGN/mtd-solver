@@ -147,7 +147,8 @@
                     <exc:CrossFlowSettings
                         DataContext="{Binding CrossFlowSettings}"
                         PassCountSelected="{Binding Pass, Mode=TwoWay}"
-                        FluidsBehaviorSelected="{Binding Fluids, Mode=TwoWay}">
+                        FluidsBehaviorSelected="{Binding Fluids, Mode=TwoWay}"
+                        ShellFluidAcrossTubesSelected="{Binding FluidAcrossTubes, Mode=TwoWay}">
                         <exc:CrossFlowSettings.Style>
                             <Style>
                                 <Setter Property="UIElement.Visibility" Value="Collapsed"/>

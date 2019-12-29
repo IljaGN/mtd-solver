@@ -135,6 +135,9 @@
   <data name="CocurrentExchanger" xml:space="preserve">
     <value>Прямоточный</value>
   </data>
+  <data name="ComboBoxFluidAcrossTubesTitle" xml:space="preserve">
+    <value>Жидкость в оболочке протекает через трубный пучок:  </value>
+  </data>
   <data name="ComboBoxFluidTitle" xml:space="preserve">
     <value>Жидкости:</value>
   </data>
@@ -147,11 +150,17 @@
   <data name="CrossFlowExchanger" xml:space="preserve">
     <value>Перекрестноточный</value>
   </data>
+  <data name="FirstTubeBundle" xml:space="preserve">
+    <value>Первый</value>
+  </data>
   <data name="OneMixed" xml:space="preserve">
     <value>Одна перемешивается</value>
   </data>
   <data name="Result" xml:space="preserve">
     <value>Результат</value>
+  </data>
+  <data name="SecondTubeBundle" xml:space="preserve">
+    <value>Второй</value>
   </data>
   <data name="ShellAndTubeExchanger" xml:space="preserve">
     <value>Кожухотрубный</value>
