@@ -12,6 +12,14 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <TextBlock Text="{x:Static r:Resources.ShellsCountTitle}" VerticalAlignment="Center" Grid.Column="0"/>
-        <TextBox Text="{Binding ShellsCount, Mode=TwoWay}" VerticalAlignment="Center" Grid.Column="1"/>
+        <TextBox VerticalAlignment="Center" Grid.Column="1">
+            <TextBox.Text>
+                <Binding Path="ShellsCount" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <ExceptionValidationRule/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
     </Grid>
 </UserControl>

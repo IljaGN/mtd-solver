@@ -1,9 +1,21 @@
 ﻿using MTD_Solver.Api;
+using System;
 
 namespace MTD_Solver.Models.Exchangers
 {
   public class ShellAndTubeExchangerSettings : IExchangerSettings
   {
-    public int ShellCount { get; set; }
+    private int shellCount;
+    public int ShellCount {
+      get => shellCount;
+      set
+      {
+        if (value < 1 || value > 8)
+        {
+          throw new ArgumentException();
+        }
+        shellCount = value;
+      }
+    }
   }
 }

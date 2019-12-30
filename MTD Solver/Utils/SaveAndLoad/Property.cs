@@ -34,7 +34,8 @@ namespace MTD_Solver.Utils
         CrossFlowSettings = new CrossFlowExchangerSettings
         {
           Pass = PassCount.ONE,
-          Fluids = FluidsBehavior.ONE_MIXED
+          Fluids = FluidsBehavior.ONE_MIXED,
+          FluidAcrossTubes = ShellFluidAcrossTubes.FIRST
         }
       };
       return new Property(config, data);
