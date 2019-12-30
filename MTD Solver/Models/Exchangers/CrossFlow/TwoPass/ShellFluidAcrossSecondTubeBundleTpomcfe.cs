@@ -1,6 +1,6 @@
 ﻿namespace MTD_Solver.Models.Exchangers
 {
-  class ShellFluidAcrossSecondTubeBundleTpomcfe : TwoPassOneMixedBaseCfe
+  class ShellFluidAcrossSecondTubeBundleTpomCfe : TwoPassOneMixedBaseCfe
   {
     protected override double LnValue()
     {

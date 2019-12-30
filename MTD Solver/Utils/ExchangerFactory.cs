@@ -55,11 +55,11 @@ namespace MTD_Solver.Utils
       switch (settings.FluidAcrossTubes)
       {
         case ShellFluidAcrossTubes.FIRST:
-          return new ShellFluidAcrossFirstTubeBundleTpomcfe();
+          return new ShellFluidAcrossFirstTubeBundleTpomCfe();
         case ShellFluidAcrossTubes.SECOND:
-          return new ShellFluidAcrossSecondTubeBundleTpomcfe();
+          return new ShellFluidAcrossSecondTubeBundleTpomCfe();
         default:
-          return new ShellFluidAcrossFirstTubeBundleTpomcfe();
+          return new ShellFluidAcrossFirstTubeBundleTpomCfe();
       }
     }
   }

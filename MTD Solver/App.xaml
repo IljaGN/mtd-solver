@@ -9,8 +9,16 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="View/Images/CocurrentExchanger.xaml"/>
                 <ResourceDictionary Source="View/Images/CountercurrentExchanger.xaml"/>
-                <ResourceDictionary Source="View/Images/ShellAndTubeExchanger.xaml"/>
-                <ResourceDictionary Source="View/Images/CrossFlowExchanger.xaml"/>
+                <ResourceDictionary Source="View/Images/OneShellAndTubeExchanger.xaml"/>
+                <ResourceDictionary Source="View/Images/TwoShellAndTubeExchanger.xaml"/>
+                <ResourceDictionary Source="View/Images/ThreeShellAndTubeExchanger.xaml"/>
+                <ResourceDictionary Source="View/Images/ManyEvenShellAndTubeExchanger.xaml"/>
+                <ResourceDictionary Source="View/Images/ManyOddShellAndTubeExchanger.xaml"/>
+                <ResourceDictionary Source="View/Images/SinglePassBothMixedCfe.xaml"/>
+                <ResourceDictionary Source="View/Images/SinglePassBothUnmixedCfe.xaml"/>
+                <ResourceDictionary Source="View/Images/SinglePassOneMixedCfe.xaml"/>
+                <ResourceDictionary Source="View/Images/ShellFluidAcrossFirstTubeBundleTpomCfe.xaml"/>
+                <ResourceDictionary Source="View/Images/ShellFluidAcrossSecondTubeBundleTpomCfe.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

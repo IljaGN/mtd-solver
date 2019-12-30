@@ -75,11 +75,43 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Images\CrossFlowExchanger.xaml">
+    <Page Include="View\Images\ManyEvenShellAndTubeExchanger.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Images\TwoShellAndTubeExchanger.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Images\ThreeShellAndTubeExchanger.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Images\ManyOddShellAndTubeExchanger.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Images\SinglePassBothUnmixedCfe.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Images\ShellFluidAcrossFirstTubeBundleTpomCfe.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Images\ShellFluidAcrossSecondTubeBundleTpomCfe.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Images\SinglePassOneMixedCfe.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Images\SinglePassBothMixedCfe.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Images\ShellAndTubeExchanger.xaml">
+    <Page Include="View\Images\OneShellAndTubeExchanger.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -112,8 +144,8 @@
     <Compile Include="Models\Exchangers\CompositeBaseExchanger.cs" />
     <Compile Include="Models\Exchangers\CrossFlow\CrossFlowExchangerSettings.cs" />
     <Compile Include="Models\Exchangers\CrossFlow\SinglePass\SinglePassOneMixedCfe.cs" />
-    <Compile Include="Models\Exchangers\CrossFlow\TwoPass\ShellFluidAcrossFirstTubeBundleTpomcfe.cs" />
-    <Compile Include="Models\Exchangers\CrossFlow\TwoPass\ShellFluidAcrossSecondTubeBundleTpomcfe.cs" />
+    <Compile Include="Models\Exchangers\CrossFlow\TwoPass\ShellFluidAcrossFirstTubeBundleTpomCfe.cs" />
+    <Compile Include="Models\Exchangers\CrossFlow\TwoPass\ShellFluidAcrossSecondTubeBundleTpomCfe.cs" />
     <Compile Include="Models\Exchangers\CrossFlow\TwoPass\TwoPassOneMixedBaseCfe.cs" />
     <Compile Include="Models\Exchangers\ShellAndTube\ShellAndTubeExchangerSettings.cs" />
     <Compile Include="Models\Exchangers\SimpleBaseExchanger.cs" />

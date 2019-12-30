@@ -207,16 +207,84 @@
                     </Style.Triggers>
                 </Style>
             </Viewbox.Style>
-            <Control>
+            <Control DataContext="{Binding WindowData}">
             <Control.Style>
                     <Style>
                         <Style.Triggers>
-                            <DataTrigger Binding="{Binding SelectedValue, ElementName=comboBox}" Value="SHELL_AND_TUBE">
-                                <Setter Property="Control.Template" Value="{StaticResource ShellAndTubeExchanger}"/>
+                            <DataTrigger Binding="{Binding ShellAndTubeSettings.ShellCount}" Value="1">
+                                <Setter Property="Control.Template" Value="{StaticResource OneShellAndTubeExchanger}"/>
                             </DataTrigger>
-                            <DataTrigger Binding="{Binding SelectedValue, ElementName=comboBox}" Value="CROSS_FLOW">
-                                <Setter Property="Control.Template" Value="{StaticResource CrossFlowExchanger}"/>
+                            <DataTrigger Binding="{Binding ShellAndTubeSettings.ShellCount}" Value="2">
+                                <Setter Property="Control.Template" Value="{StaticResource TwoShellAndTubeExchanger}"/>
                             </DataTrigger>
+                            <DataTrigger Binding="{Binding ShellAndTubeSettings.ShellCount}" Value="3">
+                                <Setter Property="Control.Template" Value="{StaticResource ThreeShellAndTubeExchanger}"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding ShellAndTubeSettings.ShellCount}" Value="4">
+                                <Setter Property="Control.Template" Value="{StaticResource ManyEvenShellAndTubeExchanger}"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding ShellAndTubeSettings.ShellCount}" Value="5">
+                                <Setter Property="Control.Template" Value="{StaticResource ManyOddShellAndTubeExchanger}"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding ShellAndTubeSettings.ShellCount}" Value="6">
+                                <Setter Property="Control.Template" Value="{StaticResource ManyEvenShellAndTubeExchanger}"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding ShellAndTubeSettings.ShellCount}" Value="7">
+                                <Setter Property="Control.Template" Value="{StaticResource ManyOddShellAndTubeExchanger}"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding ShellAndTubeSettings.ShellCount}" Value="8">
+                                <Setter Property="Control.Template" Value="{StaticResource ManyEvenShellAndTubeExchanger}"/>
+                            </DataTrigger>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding ExchangerType}" Value="CROSS_FLOW"/>
+                                    <Condition Binding="{Binding CrossFlowSettings.Pass}" Value="ONE"/>
+                                    <Condition Binding="{Binding CrossFlowSettings.Fluids}" Value="BOTH_UNMIXED"/>
+                                </MultiDataTrigger.Conditions>
+                                <MultiDataTrigger.Setters>
+                                    <Setter Property="Control.Template" Value="{StaticResource SinglePassBothUnmixedCfe}"/>
+                                </MultiDataTrigger.Setters>
+                            </MultiDataTrigger>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding ExchangerType}" Value="CROSS_FLOW"/>
+                                    <Condition Binding="{Binding CrossFlowSettings.Pass}" Value="ONE"/>
+                                    <Condition Binding="{Binding CrossFlowSettings.Fluids}" Value="ONE_MIXED"/>
+                                </MultiDataTrigger.Conditions>
+                                <MultiDataTrigger.Setters>
+                                    <Setter Property="Control.Template" Value="{StaticResource SinglePassOneMixedCfe}"/>
+                                </MultiDataTrigger.Setters>
+                            </MultiDataTrigger>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding ExchangerType}" Value="CROSS_FLOW"/>
+                                    <Condition Binding="{Binding CrossFlowSettings.Pass}" Value="ONE"/>
+                                    <Condition Binding="{Binding CrossFlowSettings.Fluids}" Value="BOTH_MIXED"/>
+                                </MultiDataTrigger.Conditions>
+                                <MultiDataTrigger.Setters>
+                                    <Setter Property="Control.Template" Value="{StaticResource SinglePassBothMixedCfe}"/>
+                                </MultiDataTrigger.Setters>
+                            </MultiDataTrigger>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding ExchangerType}" Value="CROSS_FLOW"/>
+                                    <Condition Binding="{Binding CrossFlowSettings.Pass}" Value="TWO"/>
+                                    <Condition Binding="{Binding CrossFlowSettings.FluidAcrossTubes}" Value="FIRST"/>
+                                </MultiDataTrigger.Conditions>
+                                <MultiDataTrigger.Setters>
+                                    <Setter Property="Control.Template" Value="{StaticResource ShellFluidAcrossFirstTubeBundleTpomCfe}"/>
+                                </MultiDataTrigger.Setters>
+                            </MultiDataTrigger>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding ExchangerType}" Value="CROSS_FLOW"/>
+                                    <Condition Binding="{Binding CrossFlowSettings.Pass}" Value="TWO"/>
+                                    <Condition Binding="{Binding CrossFlowSettings.FluidAcrossTubes}" Value="SECOND"/>
+                                </MultiDataTrigger.Conditions>
+                                <MultiDataTrigger.Setters>
+                                    <Setter Property="Control.Template" Value="{StaticResource ShellFluidAcrossSecondTubeBundleTpomCfe}"/>
+                                </MultiDataTrigger.Setters>
+                            </MultiDataTrigger>
                         </Style.Triggers>
                     </Style>
                 </Control.Style>
