@@ -24,7 +24,7 @@ namespace MTD_Solver.View
       var assembly = Assembly.GetExecutingAssembly();
       string name = assembly.GetCustomAttribute<AssemblyTitleAttribute>().Title;
       string version = assembly.GetCustomAttribute<AssemblyFileVersionAttribute>().Version;
-      Title = $"Test Version: {name} {version}";
+      Title = $"{name} {version}";
     }
 
     private void InitializeWindowData()
