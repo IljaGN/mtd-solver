@@ -21,6 +21,19 @@ namespace MTD_Solver.View.Components
       new PropertyMetadata("0", new PropertyChangedCallback(OnValueChanged))
       );
 
+    public bool ReadOnly
+    {
+      get { return (bool)GetValue(ReadOnlyProperty); }
+      set { SetValue(ReadOnlyProperty, value); }
+    }
+
+    public static readonly DependencyProperty ReadOnlyProperty = DependencyProperty.Register(
+      nameof(ReadOnly),
+      typeof(bool),
+      typeof(MtdInput),
+      new PropertyMetadata(false)
+      );
+
     public string Title
     {
       get { return (string)GetValue(TitleProperty); }
