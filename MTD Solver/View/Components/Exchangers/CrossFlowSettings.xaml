@@ -41,14 +41,14 @@
             <ColumnDefinition Width="1.9*"/>
         </Grid.ColumnDefinitions>
         <TextBlock Text="{x:Static r:Resources.ComboBoxPassTitle}" Grid.Row="0" Grid.Column="0"/>
-        <ComboBox x:Name="comboBoxPassCount" Grid.Row="1" Grid.Column="0"
+        <ComboBox x:Name="comboBoxPassCount" TabIndex="2" Grid.Row="1" Grid.Column="0"
             ItemsSource="{Binding PassCountOptions}"
             SelectedValue="{Binding PassCountSelected, Mode=TwoWay}"
             SelectedValuePath="Type"
             DisplayMemberPath="Caption">
         </ComboBox>
         <TextBlock Text="{x:Static r:Resources.ComboBoxFluidTitle}" Grid.Row="0" Grid.Column="2"/>
-        <ComboBox Grid.Row="1" Grid.Column="2"
+        <ComboBox TabIndex="2" Grid.Row="1" Grid.Column="2"
             ItemsSource="{Binding FluidsBehaviorOptions}"
             SelectedValue="{Binding FluidsBehaviorSelected, Mode=TwoWay}"
             SelectedValuePath="Type"
@@ -64,11 +64,20 @@
             </ComboBox.Style>
         </ComboBox>
         <TextBlock Text="{x:Static r:Resources.ComboBoxFluidAcrossTubesTitle}" TextWrapping="Wrap" Grid.Row="3" Grid.ColumnSpan="3">
-            <ComboBox TextBlock.BaselineOffset="18"
+            <ComboBox TabIndex="2" TextBlock.BaselineOffset="18"
                 ItemsSource="{Binding ShellFluidAcrossTubesOptions}"
                 SelectedValue="{Binding ShellFluidAcrossTubesSelected, Mode=TwoWay}"
                 SelectedValuePath="Type"
                 DisplayMemberPath="Caption">
+                <ComboBox.Style>
+                    <Style>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding SelectedValue, ElementName=comboBoxPassCount}" Value="ONE">
+                                <Setter Property="ComboBox.IsTabStop" Value="False"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </ComboBox.Style>
             </ComboBox>
         </TextBlock>
     </Grid>

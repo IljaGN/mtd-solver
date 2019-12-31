@@ -106,7 +106,7 @@
                 x:Name="comboBox"
                 Margin="0 0 0 5"
                 Padding="5"
-                TabIndex="1"
+                TabIndex="0"
                 DockPanel.Dock="Top"
                 ItemsSource="{Binding ComboBoxOptions}"
                 SelectedValue="{Binding WindowData.ExchangerType, Mode=TwoWay}"
@@ -160,7 +160,7 @@
                             </Style>
                         </exc:CrossFlowSettings.Style>
                     </exc:CrossFlowSettings>
-                    <Button Margin="35 10 35 0" Content="{x:Static r:Resources.BtnApply}" Click="BtnApply_Click"/>
+                    <Button Content="{x:Static r:Resources.BtnApply}" Margin="35 10 35 0" TabIndex="10" Click="BtnApply_Click"/>
                 </StackPanel>
             </GroupBox>
             <Viewbox StretchDirection="DownOnly" UseLayoutRounding="True">
@@ -177,7 +177,7 @@
                         </Style.Triggers>
                     </Style>
                 </Viewbox.Style>
-                <Control>
+                <Control IsTabStop="False">
                     <Control.Style>
                         <Style>
                             <Style.Triggers>
@@ -207,7 +207,7 @@
                     </Style.Triggers>
                 </Style>
             </Viewbox.Style>
-            <Control DataContext="{Binding WindowData}">
+            <Control DataContext="{Binding WindowData}" IsTabStop="False">
             <Control.Style>
                     <Style>
                         <Style.Triggers>
@@ -306,19 +306,19 @@
                         <RowDefinition/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    <com:MtdInput Title="P" Value="{Binding P, Mode=OneWay, StringFormat={}{0:F3}}" ReadOnly="True" IsTabStop="False" Grid.Column="0" Grid.Row="0"/>
-                    <com:MtdInput Title="R" Value="{Binding R, Mode=OneWay, StringFormat={}{0:F3}}" ReadOnly="True" IsTabStop="False" Grid.Column="0" Grid.Row="1"/>
+                    <com:MtdInput Title="P" Value="{Binding P, Mode=OneWay, StringFormat={}{0:F3}}" ReadOnly="True" Grid.Column="0" Grid.Row="0"/>
+                    <com:MtdInput Title="R" Value="{Binding R, Mode=OneWay, StringFormat={}{0:F3}}" ReadOnly="True" Grid.Column="0" Grid.Row="1"/>
                 </Grid>
                 <Grid Grid.Column="1" Grid.Row="0">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    <com:MtdInput Title="F" Value="{Binding CorrectionFactor, Mode=OneWay, StringFormat={}{0:F3}}" ReadOnly="True" IsTabStop="False" Grid.Column="0" Grid.Row="0"/>
-                    <com:MtdInput Title="T" Value="{Binding Mtd, Mode=OneWay, StringFormat={}{0:F2}}" Style="{StaticResource degreeC}" ReadOnly="True" IsTabStop="False" Grid.Column="0" Grid.Row="1"/>
+                    <com:MtdInput Title="F" Value="{Binding CorrectionFactor, Mode=OneWay, StringFormat={}{0:F3}}" ReadOnly="True" Grid.Column="0" Grid.Row="0"/>
+                    <com:MtdInput Title="T" Value="{Binding Mtd, Mode=OneWay, StringFormat={}{0:F2}}" Style="{StaticResource degreeC}" ReadOnly="True" Grid.Column="0" Grid.Row="1"/>
                 </Grid>
                 <Grid HorizontalAlignment="Center" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2">
-                    <com:MtdInput Title="{x:Static r:Resources.Result}" Value="{Binding CorrectionMtd, Mode=OneWay, StringFormat={}{0:F2}}" Style="{StaticResource degreeC}" ReadOnly="True" IsTabStop="False" Grid.Column="0" Grid.Row="1"/>
+                    <com:MtdInput Title="{x:Static r:Resources.Result}" Value="{Binding CorrectionMtd, Mode=OneWay, StringFormat={}{0:F2}}" Style="{StaticResource degreeC}" ReadOnly="True" Grid.Column="0" Grid.Row="1"/>
                 </Grid>
             </Grid>
         </GroupBox>
