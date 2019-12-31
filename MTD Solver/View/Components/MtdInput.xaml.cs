@@ -65,6 +65,8 @@ namespace MTD_Solver.View.Components
     public MtdInput()
     {
       InitializeComponent();
+      textBox.CommandBindings.Add(new CommandBinding(ApplicationCommands.Paste, OnPaste));
+
       NumberFormatInfo numberFormat = CultureInfo.CurrentCulture.NumberFormat;
       MIN_DECIMAL_DIGIT = numberFormat.NativeDigits[0][0];
       DECIMAL_SEPARATOR = numberFormat.NumberDecimalSeparator[0];
@@ -201,11 +203,22 @@ namespace MTD_Solver.View.Components
       RaiseEvent(args);
     }
 
-    private double ConvertStringToDouble(string str)
+    private void OnPaste(object sender, ExecutedRoutedEventArgs e)
     {
-      double dbl = double.NaN;
-      double.TryParse(str, out dbl);
-      return dbl;
+      if (!Clipboard.ContainsText())
+      {
+        return;
+      }
+
+      string clipboardText = Clipboard.GetText();
+      char chr = clipboardText.FirstOrDefault(c => !char.IsDigit(c) && c != NEGATIVE_SIGN);
+      string text = chr == '\0' ? clipboardText : clipboardText.Replace(chr, DECIMAL_SEPARATOR);
+      try
+      {
+        double dbl = double.Parse(text);
+        textBox.Text = dbl.ToString();
+      }
+      catch (Exception) { }
     }
   }
 }

@@ -9,6 +9,7 @@
         <StackPanel Orientation="Horizontal" DataContext="{Binding ElementName=Input}" MaxHeight="35">
             <Label MinWidth="25" Content="{Binding Title}"/>
             <TextBox
+                x:Name="textBox"
                 Width="80"
                 Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                 IsReadOnly="{Binding ReadOnly, Mode=TwoWay}"
