@@ -54,7 +54,7 @@ namespace MTD_Solver.View
       exchanger.BindResultData(Out);
     }
 
-    private void MtdInput_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+    private void MtdInput_ValueChanged(object sender, RoutedPropertyChangedEventArgs<string> e)
     {
       exchanger.Execute();
     }

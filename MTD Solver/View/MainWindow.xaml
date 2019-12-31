@@ -7,7 +7,7 @@
         xmlns:com="clr-namespace:MTD_Solver.View.Components"
         xmlns:exc="clr-namespace:MTD_Solver.View.Components.Exchangers"
         xmlns:r="clr-namespace:MTD_Solver.Properties"
-        Name="mainWindow" Title="MainWindow"
+        x:Name="mainWindow" Title="MainWindow"
         Height="300" ResizeMode="CanMinimize"
         FontSize="15">
     <Window.Resources>
@@ -87,16 +87,16 @@
                             <RowDefinition/>
                             <RowDefinition/>
                         </Grid.RowDefinitions>
-                        <com:MtdInput Title="T1" Value="{Binding Inlet, Mode=TwoWay}" Style="{StaticResource degreeC}" Grid.Column="0" Grid.Row="0" KeepTrackCharsChange="True" ValueChanged="MtdInput_ValueChanged"/>
-                        <com:MtdInput Title="T2" Value="{Binding Outlet, Mode=TwoWay}" Style="{StaticResource degreeC}" Grid.Column="0" Grid.Row="1" KeepTrackCharsChange="True" ValueChanged="MtdInput_ValueChanged"/>
+                        <com:MtdInput Title="T1" Value="{Binding Inlet, Mode=TwoWay}" Style="{StaticResource degreeC}" Grid.Column="0" Grid.Row="0" ValueChanged="MtdInput_ValueChanged"/>
+                        <com:MtdInput Title="T2" Value="{Binding Outlet, Mode=TwoWay}" Style="{StaticResource degreeC}" Grid.Column="0" Grid.Row="1" ValueChanged="MtdInput_ValueChanged"/>
                     </Grid>
                     <Grid DataContext="{Binding ColdFluid}" Grid.Column="1" Grid.Row="0">
                         <Grid.RowDefinitions>
                             <RowDefinition/>
                             <RowDefinition/>
                         </Grid.RowDefinitions>
-                        <com:MtdInput Title="t1" Value="{Binding Inlet, Mode=TwoWay}" Style="{StaticResource degreeC}" IsTabStop="False" Grid.Column="0" Grid.Row="0" KeepTrackCharsChange="True" ValueChanged="MtdInput_ValueChanged"/>
-                        <com:MtdInput Title="t2" Value="{Binding Outlet, Mode=TwoWay}" Style="{StaticResource degreeC}" IsTabStop="False" Grid.Column="0" Grid.Row="1" KeepTrackCharsChange="True" ValueChanged="MtdInput_ValueChanged"/>
+                        <com:MtdInput Title="t1" Value="{Binding Inlet, Mode=TwoWay}" Style="{StaticResource degreeC}" IsTabStop="False" Grid.Column="0" Grid.Row="0" ValueChanged="MtdInput_ValueChanged"/>
+                        <com:MtdInput Title="t2" Value="{Binding Outlet, Mode=TwoWay}" Style="{StaticResource degreeC}" IsTabStop="False" Grid.Column="0" Grid.Row="1" ValueChanged="MtdInput_ValueChanged"/>
                     </Grid>
                 </Grid>
             </GroupBox>
@@ -306,19 +306,19 @@
                         <RowDefinition/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    <com:MtdInput Title="P" Value="{Binding P, Mode=OneWay}" IsTabStop="False" Grid.Column="0" Grid.Row="0"/>
-                    <com:MtdInput Title="R" Value="{Binding R, Mode=OneWay}" IsTabStop="False" Grid.Column="0" Grid.Row="1"/>
+                    <com:MtdInput Title="P" Value="{Binding P, Mode=OneWay, StringFormat={}{0:F3}}" IsTabStop="False" Grid.Column="0" Grid.Row="0"/>
+                    <com:MtdInput Title="R" Value="{Binding R, Mode=OneWay, StringFormat={}{0:F3}}" IsTabStop="False" Grid.Column="0" Grid.Row="1"/>
                 </Grid>
                 <Grid Grid.Column="1" Grid.Row="0">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    <com:MtdInput Title="F" Value="{Binding CorrectionFactor, Mode=OneWay}" IsTabStop="False" Grid.Column="0" Grid.Row="0"/>
-                    <com:MtdInput Title="T" Value="{Binding Mtd, Mode=OneWay}" Style="{StaticResource degreeC}" IsTabStop="False" Grid.Column="0" Grid.Row="1"/>
+                    <com:MtdInput Title="F" Value="{Binding CorrectionFactor, Mode=OneWay, StringFormat={}{0:F3}}" IsTabStop="False" Grid.Column="0" Grid.Row="0"/>
+                    <com:MtdInput Title="T" Value="{Binding Mtd, Mode=OneWay, StringFormat={}{0:F2}}" Style="{StaticResource degreeC}" IsTabStop="False" Grid.Column="0" Grid.Row="1"/>
                 </Grid>
                 <Grid HorizontalAlignment="Center" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2">
-                    <com:MtdInput Title="{x:Static r:Resources.Result}" Value="{Binding CorrectionMtd, Mode=OneWay}" Style="{StaticResource degreeC}" Grid.Column="0" Grid.Row="1"/>
+                    <com:MtdInput Title="{x:Static r:Resources.Result}" Value="{Binding CorrectionMtd, Mode=OneWay, StringFormat={}{0:F2}}" Style="{StaticResource degreeC}" Grid.Column="0" Grid.Row="1"/>
                 </Grid>
             </Grid>
         </GroupBox>

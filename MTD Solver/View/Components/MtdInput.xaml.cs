@@ -9,16 +9,16 @@ namespace MTD_Solver.View.Components
 {
   public partial class MtdInput : UserControl
   {
-    public double Value
+    public string Value
     {
-      get { return (double)GetValue(ValueProperty); }
+      get { return (string)GetValue(ValueProperty); }
       set { SetValue(ValueProperty, value); }
     }
     public static readonly DependencyProperty ValueProperty = DependencyProperty.Register(
       nameof(Value),
-      typeof(double),
+      typeof(string),
       typeof(MtdInput),
-      new PropertyMetadata(0D, new PropertyChangedCallback(OnValueChanged))
+      new PropertyMetadata("0", new PropertyChangedCallback(OnValueChanged))
       );
 
     public string Title
@@ -43,18 +43,6 @@ namespace MTD_Solver.View.Components
       typeof(string),
       typeof(MtdInput),
       new PropertyMetadata(string.Empty)
-      );
-
-    public bool KeepTrackCharsChange
-    {
-      get { return (bool)GetValue(KeepTrackCharsChangeProperty); }
-      set { SetValue(KeepTrackCharsChangeProperty, value); }
-    }
-    public static readonly DependencyProperty KeepTrackCharsChangeProperty = DependencyProperty.Register(
-      nameof(KeepTrackCharsChange),
-      typeof(bool),
-      typeof(MtdInput),
-      new PropertyMetadata(false)
       );
 
     private readonly char MIN_DECIMAL_DIGIT;
@@ -175,11 +163,11 @@ namespace MTD_Solver.View.Components
     public static readonly RoutedEvent ValueChangedEvent = EventManager.RegisterRoutedEvent(
         nameof(ValueChanged),
         RoutingStrategy.Bubble,
-        typeof(RoutedPropertyChangedEventHandler<double>),
+        typeof(RoutedPropertyChangedEventHandler<string>),
         typeof(MtdInput)
       );
 
-    public event RoutedPropertyChangedEventHandler<double> ValueChanged
+    public event RoutedPropertyChangedEventHandler<string> ValueChanged
     {
       add { AddHandler(ValueChangedEvent, value); }
       remove { RemoveHandler(ValueChangedEvent, value); }
@@ -188,31 +176,16 @@ namespace MTD_Solver.View.Components
     private static void OnValueChanged(DependencyObject obj, DependencyPropertyChangedEventArgs args)
     {
       MtdInput control = obj as MtdInput;
-      control.OnValueChanged(new RoutedPropertyChangedEventArgs<double>(
-          (double)args.OldValue,
-          (double)args.NewValue,
+      control.OnValueChanged(new RoutedPropertyChangedEventArgs<string>(
+          (string)args.OldValue,
+          (string)args.NewValue,
           ValueChangedEvent
           ));
     }
 
-    protected virtual void OnValueChanged(RoutedPropertyChangedEventArgs<double> args)
+    protected virtual void OnValueChanged(RoutedPropertyChangedEventArgs<string> args)
     {
       RaiseEvent(args);
-    }
-
-    private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-    {
-      if (!KeepTrackCharsChange)
-      {
-        return;
-      }
-
-      TextBox box = sender as TextBox;
-      double value = ConvertStringToDouble(box.Text);
-      if (value != double.NaN)
-      {
-        Value = value;
-      }
     }
 
     private double ConvertStringToDouble(string str)
